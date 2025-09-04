@@ -1,3 +1,5 @@
+Hello, this is a test commit!
+
 # CS 260 Notes
 
 [My startup - Simon](https://simon.cs260.click)
