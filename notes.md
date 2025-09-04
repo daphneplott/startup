@@ -2,6 +2,8 @@ Hello, this is a test commit!
 
 # CS 260 Notes
 
+Things I learned from my first push/pull/commit session: It's not too difficult. Just remember to always pull when you enter VS, and you can commit using the side bar. You can push changes by using the SYNC button. If you have an issue (like a really big one, and you don't mind deleting things), you can use git reset --hard HEAD~1 to literally delete your last commit (such as if you accidently saved with your personal access token).
+
 [My startup - Simon](https://simon.cs260.click)
 
 ## Helpful links
