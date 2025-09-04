@@ -1,6 +1,7 @@
 # Your startup name here
 
 I have a few thoughts ... KOTLC game? Brandon Sanderson quotes? Tips and tricks for BYU campus?
+This is now my Github editing file note!
 
 [My Notes](notes.md)
 
