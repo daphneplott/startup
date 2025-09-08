@@ -45,7 +45,11 @@ sequenceDiagram
 ### Key features
 
 - A login screen that customizes your username and school name
+- Choose a theming for your school, which will display background ambience images during the games
 - 2 or 3 mini games that reflect magical classes
+ - Number guessing game
+ - Matching images game
+ - What's your magic power quiz (time permitting)
 - Your high scores for each mini game is saved
 - Comparing high scores between players
 
