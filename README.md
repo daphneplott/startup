@@ -1,11 +1,9 @@
-# Your startup name here
+# Magic School Game
 
-I have a few thoughts ... KOTLC game? Brandon Sanderson quotes? Tips and tricks for BYU campus?
-This is now my Github editing file note!
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This application is a simple game that simulates classes in magic school. It primarily runs on a (few) small minigames with comparative scores.
 
 
 > [!NOTE]
@@ -29,7 +27,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+There are so many fantasical magical schools - and not a one of them are real! Have you ever wished you could attend magic school for yourself? Now you can! In my application, you can play games that reflect fun magical classes. You can log in to save a custom school name, and compare high scores with other players.  ... 
 
 ### Design
 
@@ -46,9 +44,10 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- A login screen that customizes your username and school name
+- 2 or 3 mini games that reflect magical classes
+- Your high scores for each mini game is saved
+- Comparing high scores between players
 
 ### Technologies
 
