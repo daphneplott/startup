@@ -19,11 +19,11 @@ This application is a simple game that simulates classes in magic school. It pri
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [x] Description of how you will use each technology
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -31,16 +31,17 @@ There are so many fantasical magical schools - and not a one of them are real! H
 
 ### Design
 
-![Design image](placeholder.png)
+![Design image](260WebsiteDesign.jpg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The website will have 7 main pages, though some will be very simple:
+- The Home page will include a cute welcome message, something like "Your acceptance letter has been delivered! Welcome to Magic School!". In the corner will be the sign in/view profile/sign out button. If you're signed in, it will display your Player Name and School Name, along with the option to log out. If you are not signed in, it will link you to the sign in page. Below that, it will include the links to the two games, along with descriptions of those two games.
+- The Sign in page will include a HOME button, and a simple sign in box, which allows you to enter a username and password. It will also link to the Create Account page
+- The Create Account page lets you create a usernmae and password, and also has you enter in a Player Name and School Name of your choosing. On this page, it will also include a link to a third party that generates fun fantasy names, that players can use if they are feeling uninspired.
+- There will be two game pages, which will be similar in desgin. They will each have a top bar, which displays a Home page link, your current high score, the overall high score (along with a link to the high score page), and the profile/log in box. In the center of the page will be the game module. When the game is finished, a small pop up screen will appear that displays your score, along with a prompt to "log in" to save your score if you are not logged in.
+  - For the Alchemy game, it will include text prompts and repsonses, that will be centered in the page. 
+  - For the Astronomy game, it will include a 4x4 grid of "flipped over" pictures, that you can click to flip in a matching game
+- There will be two high score pages. It will include a "Back to Game" button, that will take you back to the game, and the profile/log in box. In the center of the page, it will include the top 10 high scores, along with your high score. The high scores will list the Player Name and School Name of the player, and their high score.
 
-```mermaid
-sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
-```
 
 ### Key features
 
@@ -56,12 +57,12 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Structure of the 7 pages, navigation between pages, some themed images on the home page behind the Welcome Message and the Game navigational buttons, as well as the astonomy images
+- **CSS** - Color choices, styling that looks good on different sized screens (but not on a mobile app)
+- **React** - Login and create account forms. Runs the game modules based on the user input. 
+- **Service** - Retrieves and submits scores. Retrieves the user's Player and School names. Works with the Login/Logout/Create Account pages. High scores will not be saved unless a user is logged in. Calls to the third party website for generating name ideas.
+- **DB/Login** - Stores login information, users' high scores, and users' Player and School names.
+- **WebSocket** - Renders realtime high score data as users complete games, and updates high scores
 
 ## 🚀 AWS deliverable
 
