@@ -27,7 +27,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-There are so many fantasical magical schools - and not a one of them are real! Have you ever wished you could attend magic school for yourself? Now you can! In my application, you can play games that reflect fun magical classes. You can log in to save a custom school name, and compare high scores with other players.  ... 
+There are so many fantasical magical schools - and not a one of them are real! Have you ever wished you could attend magic school for yourself? Now you can! In my application, you can build your own magical school. When you log in, you can create a player name, and customize your school. Then, you can enroll in class by playing fun games, and compare your test scores with other players.
 
 ### Design
 
@@ -44,12 +44,11 @@ sequenceDiagram
 
 ### Key features
 
-- A login screen that customizes your username and school name
-- Choose a theming for your school, which will display background ambience images during the games
-- 2 or 3 mini games that reflect magical classes
-  - Number guessing game
-  - Matching images game
-  - What's your magic power quiz (time permitting)
+- A login screen that customizes your playername/username and school name
+- 2 mini games that reflect magical classes
+  - Alchemy/Potions game
+  - Astronomy matching game
+  - (Possibly a third, if the implementation of the first two games goes well)
 - Your high scores for each mini game is saved
 - Comparing high scores between players
 
