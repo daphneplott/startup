@@ -34,22 +34,36 @@ My HTTPS is active, my site is secure.
 ## HTML
 
 Start with <!DOCTYPE html>
-&lthtml>&lt/html> Start of the document
-&lthead>&lt/head> imports CSS, javascript
-&ltheader>&lt/header>
-&ltspan>&lt/span> inline css sectioning 
-&ltnav>&lt/nav>
-&ltbody>&lt/body> everything else on the page
-&ltp>&lt/p> are paragraph tags
-&ltul> &ltli>&lt/li> &lt/ul> writes "unordered list" and "list item" inside
-&lttabel> &lttr> &ltth>&lt/th> &lt/tr> &lttr>&lttd>&lt/td>&lt/tr> &lt/tabel> table, row, header or item
-&lth1>&lt/h1> Header 1 format (can be 2, 3, etc for smaller font sizes)
-&ltsection>&lt/section> can be used to section off for styling
-&ltaside>&lt/aside>
-&ltfooter>&lt/footer>
 
-&ltimg alt = "description" src = url />
-&lta href = url>Text Displayed&lt/a>
+&lt;html>&lt;/html> Start of the document
+
+&lt;head>&lt;/head> imports CSS, javascript
+
+&lt;header>&lt;/header>
+
+&lt;span>&lt;/span> inline css sectioning 
+
+&lt;nav>&lt;/nav>
+
+&lt;body>&lt;/body> everything else on the page
+
+&lt;p>&lt;/p> are paragraph tags
+
+&lt;ul> &lt;li>&lt;/li> &lt;/ul> writes "unordered list" and "list item" inside
+
+&lt;tabel> &lt;tr> &lt;th>&lt;/th> &lt;/tr> &lt;tr>&lt;td>&lt;/td>&lt;/tr> &lt;/tabel> table, row, header or item
+
+&lt;h1>&lt;/h1> Header 1 format (can be 2, 3, etc for smaller font sizes)
+
+&lt;section>&lt;/section> can be used to section off for styling
+
+&lt;aside>&lt;/aside>
+
+&lt;footer>&lt;/footer>
+
+&lt;img alt = "description" src = url />
+
+&lt;a href = url>Text Displayed&lt;/a>
 
 Tags generally need to be closed.
 
