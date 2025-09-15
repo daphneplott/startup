@@ -29,12 +29,35 @@ I think it works?
 ## Caddy
 
 No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
+My HTTPS is active, my site is secure.
 
 ## HTML
 
-This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.
+Start with <!DOCTYPE html>
+<html></html> Start of the document
+<head></head> imports CSS, javascript
+<header></header>
+<span></span> inline css sectioning 
+<nav></nav>
+<body></body> everything else on the page
+<p></p> are paragraph tags
+<ul> <li></li> </ul> writes "unordered list" and "list item" inside
+<tabel> <tr> <th></th> </tr> <tr><td></td></tr> </tabel> table, row, header or item
+<h1></h1> Header 1 format (can be 2, 3, etc for smaller font sizes)
+<section></section> can be used to section off for styling
+<aside></aside>
+<footer></footer>
 
-The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.
+<img alt = "description" src = url />
+<a href = url>Text Displayed</a>
+
+Tags generally need to be closed.
+
+w3 schools have tutorials about html elements and such
+
+*This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.*
+
+*The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.*
 
 ## CSS
 
