@@ -34,22 +34,22 @@ My HTTPS is active, my site is secure.
 ## HTML
 
 Start with <!DOCTYPE html>
-<html></html> Start of the document
-<head></head> imports CSS, javascript
-<header></header>
-<span></span> inline css sectioning 
-<nav></nav>
-<body></body> everything else on the page
-<p></p> are paragraph tags
-<ul> <li></li> </ul> writes "unordered list" and "list item" inside
-<tabel> <tr> <th></th> </tr> <tr><td></td></tr> </tabel> table, row, header or item
-<h1></h1> Header 1 format (can be 2, 3, etc for smaller font sizes)
-<section></section> can be used to section off for styling
-<aside></aside>
-<footer></footer>
+&lthtml>&lt/html> Start of the document
+&lthead>&lt/head> imports CSS, javascript
+&ltheader>&lt/header>
+&ltspan>&lt/span> inline css sectioning 
+&ltnav>&lt/nav>
+&ltbody>&lt/body> everything else on the page
+&ltp>&lt/p> are paragraph tags
+&ltul> &ltli>&lt/li> &lt/ul> writes "unordered list" and "list item" inside
+&lttabel> &lttr> &ltth>&lt/th> &lt/tr> &lttr>&lttd>&lt/td>&lt/tr> &lt/tabel> table, row, header or item
+&lth1>&lt/h1> Header 1 format (can be 2, 3, etc for smaller font sizes)
+&ltsection>&lt/section> can be used to section off for styling
+&ltaside>&lt/aside>
+&ltfooter>&lt/footer>
 
-<img alt = "description" src = url />
-<a href = url>Text Displayed</a>
+&ltimg alt = "description" src = url />
+&lta href = url>Text Displayed&lt/a>
 
 Tags generally need to be closed.
 
