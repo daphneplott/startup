@@ -81,8 +81,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **3rd party API placeholder** - The placeholder is included in create_account.html. The 3rd party is for generating fun usernames and school names. I haven't found the site I want to use yet.
 - [ ] **Images** - I did not complete this part of the deliverable.
 - [x] **Login placeholder** - A login form is created on both the login page and the create_account page. These forms are slightly different because the create_account page is where you pick your school name. The form is the same layout as the Simon example.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - The database information will be present on the game high scores page, which will display the top ten players, along with their username, school name, and score. The high score itself will be displayed on the play-game pages. The Database will also be used to remember player logins.
+- [x] **WebSocket placeholder** - The WebSocket will be used to update a single user's high score on the play game page. It will also update overall high scores by sending that information to the database. 
 
 ## 🚀 CSS deliverable
 
