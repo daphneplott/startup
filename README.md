@@ -74,10 +74,10 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - 7 pages were created. There is a home page, a login page, a create account page, two game pages, and two highscore pages.
+- [x] **Proper HTML element usage** - The main outline elements were patterned off the Simon index page. I have a head and a body, and the body contains a Header, which includes a Nav menu, a footer, and a main. h tags were used to display page titles, and p tags were used for game descriptions. The high scores pages use ordered lists. The nav bar contains a tags for links to the other pages.
+- [x] **Links** - Links were created to link the pages to each other. Every page links to the Home page and the login page. The home page links to the game pages. The game pages link to their highscores, and the highscores back to the game. The login page links to the create account page. The link to my GitHub repository is on the footer in the Home page.
+- [x] **Text** - Text was used to provide instructions for the two games, as well as a welcome message on the home page. Text was used as prompts for the create account page.
 - [x] **3rd party API placeholder** - The placeholder is included in create_account.html. The 3rd party is for generating fun usernames and school names. I haven't found the site I want to use yet.
 - [ ] **Images** - I did not complete this part of the deliverable.
 - [x] **Login placeholder** - A login form is created on both the login page and the create_account page. These forms are slightly different because the create_account page is where you pick your school name. The form is the same layout as the Simon example.
