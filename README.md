@@ -78,9 +78,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
 - [ ] **Links** - I did not complete this part of the deliverable.
 - [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **3rd party API placeholder** - The placeholder is included in create_account.html. The 3rd party is for generating fun usernames and school names. I haven't found the site I want to use yet.
 - [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
+- [x] **Login placeholder** - A login form is created on both the login page and the create_account page. These forms are slightly different because the create_account page is where you pick your school name. The form is the same layout as the Simon example.
 - [ ] **DB data placeholder** - I did not complete this part of the deliverable.
 - [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
