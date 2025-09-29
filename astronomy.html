@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <head>
     <title>Astronomy Game</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel = "stylesheet" href = "main.css" />
+    <link rel = "stylesheet" href = "game.css" />
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+    />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <menu>
-                <li><a href = "index.html">Home</a></li>
-                <li>My High Score: WebSocket data</li>
-                <li><a href = "highscore_astronomy.html">Overall High Score: Database data</a></li>
-                <li><a href = "login.html">Log In</a></li>
-                <li>Display Username here</li>
-                
+    <header class="container-fluid">
+        <nav class = "navbar-nav fixed-top navbar-dark" style = "background-color: pink;">
+            <menu class = "nav justify-content-end">
+                <li class = "nav-item"><a class = "nav-link" href = "index.html">Home</a></li>
+                <li class = "nav-item">My High Score: Websocket</li>
+                <li class = "nav-item"><a class = "nav-link" href = "highscore_astronomy.html">High Score: Database</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "login.html">Sign in</a></li>
+                <li class = "nav-item">Display Username here</li>
             </menu>
         </nav>
+
     </header>
 
     <main>
-        <h1>Welcome to Astronomy Class!</h1>
-        <p>For your astronomy class, you will be practicing your identification of important constellations. For this assessment, you will pick a card to reveal it. The card will either contain the image of a consetellation, or the name of it. You will then pick another card. If the constellations are a match, you will win points. If not, your revealed cards will be flipped over again. Good luck!</p>
-        <img src = "StarrySky.jpg" alt = "Beautiful starry sky at night" height = 300px />
+        <div class = "instructions" >
+            <h1>Welcome to Astronomy Class!</h1>
+            <p>For your astronomy class, you will be practicing your identification of important constellations. For this assessment, you will pick a card to reveal it. The card will either contain the image of a consetellation, or the name of it. You will then pick another card. If the constellations are a match, you will win points. If not, your revealed cards will be flipped over again. Good luck!</p>
+        </div>
 
         <!--For the astronomy game, it will have 16 buttons, which you can click to flip. 8 of the buttons will have images, 
         and 8 of the buttons will have constellation names.

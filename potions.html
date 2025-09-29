@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <head>
     <title>Potions Game</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel = "stylesheet" href = "main.css" />
+    <link rel = "stylesheet" href = "game.css" />
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+    />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <menu>
-                <li><a href = "index.html">Home</a></li>
-                <li>My High Score: WebSocket data</li>
-                <li><a href = "highscore_potions.html">Overall High Score: Database data</a></li>
-                <li><a href = "login.html">Log In</a></li>
-                <li>Display Username here</li>
-                
+<body class = "potions">
+    <header class="container-fluid">
+        <nav class = "navbar-nav fixed-top navbar-dark" style = "background-color: pink;">
+            <menu class = "nav justify-content-end">
+                <li class = "nav-item"><a class = "nav-link" href = "index.html">Home</a></li>
+                <li class = "nav-item">My High Score: Websocket</li>
+                <li class = "nav-item"><a class = "nav-link" href = "highscore_potions.html">High Score: Database</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "login.html">Sign in</a></li>
+                <li class = "nav-item">Display Username here</li>
             </menu>
         </nav>
+
     </header>
 
     <main>
-        <h1>Welcome to Potions Class!</h1>
-        <p>For your potions class, you will be practicing mixing ingredients to create different potions. For this test, you will be identifying the three ingredients that go into the potion. You will be given a multiple choice list, and you will pick one ingredient from each list. The description of your potion will be given to you once the potion is mixed. If it is not correct, you can keep trying until you make the correct concoction. Good luck!</p>
-        <img src = "CauldrenGreenSmoke.jpg" alt = "An eery cauldren with green smoke spilling out of it" />
+        <div class = "instructions">
+            <h1>Welcome to Potions Class!</h1>
+            <p>For your potions class, you will be practicing mixing ingredients to create different potions. For this test, you will be identifying the three ingredients that go into the potion. You will be given a multiple choice list, and you will pick one ingredient from each list. The description of your potion will be given to you once the potion is mixed. If it is not correct, you can keep trying until you make the correct concoction. Good luck!</p>
+        </div>
         <!--Still needs to be done with other technologies:
         
         - Randomly generate a prompt for which potion needs to be made
@@ -28,6 +41,33 @@
         - Let the player try again
         - Keep track of the number of tries to produce a score 
         -->
+
+        <form method="get" action="play.html">
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input class="form-control" type="text" placeholder="your@email.com" />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" placeholder="password" />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-secondary">Create</button>
+        </form>
+
+        <form>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+
+        </form>
         
         <ul>
             <li>
