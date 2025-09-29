@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <head>
     <title>Potions High Scores</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel = "stylesheet" href = "main.css" />
+    <link rel = "stylesheet" href = "highscores.css">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+    />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <menu>
-                <li><a href = "index.html">Home</a></li>
-                <li><a href = "potions.html">Back to Game</a></li>
-                <li><a href = "login.html">Log In</a></li>
-                <li>Display Username here</li>
+<body class = "potions">
+    <header class = "container-fluid">
+        <nav class = "navbar-nav fixed-top navbar-dark" style = "background-color: pink;">
+            <menu class = "nav">
+                <li class = "nav-item"><a class = "nav-link" href = "index.html">Home</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "potions.html">Back to Game</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "login.html">Log In</a></li>
+                <li class = "nav-item">Display Username here</li>
                 
             </menu>
         </nav>
     </header>
 
     <main>
-        <img src = "CauldrenGreenSmoke.jpg" alt = "An eery cauldren with green smoke spilling out of it" />
         <box>
-            <h2>Potions High Scores</h2>
-            <ol>
+            <h1>Potions High Scores</h1>
+            <ol  class = "highscores-box-potions">
                 <li>Player Name, School Name, and Score, retrieved from Database</li>
                 <li>Player Name, School Name, and Score, retrieved from Database</li>
                 <li>Player Name, School Name, and Score, retrieved from Database</li>

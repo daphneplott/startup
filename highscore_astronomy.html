@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <head>
     <title>Astronomy High Scores</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel = "stylesheet" href = "main.css" />
+    <link rel = "stylesheet" href = "highscores.css">
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+    crossorigin="anonymous"
+    />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <menu>
-                <li><a href = "index.html">Home</a></li>
-                <li><a href = "astronomy.html">Back to Game</a></li>
-                <li><a href = "login.html">Log In</a></li>
-                <li>Display Username here</li>
+<body class = "astronomy">
+    <header class = "container-fluid">
+        <nav class = "navbar-nav fixed-top navbar-dark" style = "background-color: pink;">
+            <menu class = "nav">
+                <li class = "nav-item"><a class = "nav-link" href = "index.html">Home</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "astronomy.html">Back to Game</a></li>
+                <li class = "nav-item"><a class = "nav-link" href = "login.html">Log In</a></li>
+                <li class = "nav-item">Display Username here</li>
                 
             </menu>
         </nav>
     </header>
 
     <main>
-        <img src = "StarrySky.jpg" alt = "Beautiful starry sky at night" height = 300px/>
         <box>
-            <h2>Astronomy High Scores</h2>
-            <ol>
+            <h1>Astronomy High Scores</h1>
+            <ol  class = "highscores-box-astronomy">
                 <li>Player Name, School Name, and Score, retrieved from Database</li>
                 <li>Player Name, School Name, and Score, retrieved from Database</li>
                 <li>Player Name, School Name, and Score, retrieved from Database</li>
@@ -35,7 +47,11 @@
         </box>
     </main>
 
-    <footer>
-
+    <footer class = "text-light">
+        <p>Creator: Daphne Plott 
+            <span>
+                <a href = "https://github.com/daphneplott/startup">GitHub Repository</a>
+            </span>
+        </p>
     </footer>
 </body>
