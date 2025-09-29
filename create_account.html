@@ -2,7 +2,7 @@
 <head>
     <title>Create Account</title>
     <link rel = "stylesheet" href = "main.css" />
-    <link rel = "stylesheet" href = "login.css" />
+    <link rel = "stylesheet" href = "create_account.css" />
   
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -17,33 +17,44 @@
         <nav class = "navbar fixed-top navbar-dark" style = "background-color: pink;">
             <menu class = "nav">
                 <li class = "nav-item"><a class = "nav-link" href = "index.html">Home</a></li>
-                
+                <li class = "nav-item"><a class = "nav-link" href = "login.html">Back to Login</a></li>
             </menu>
         </nav>
     </header>
 
     <main>
         <form method="get" action="index.html">
-        <div>
-            <p>By what name are you called, new student?</p>
-            <input type="text" placeholder="Armingan the Artist" />
+        <div class = "input-group mb-3">
+            <span class = "prompt">By what name are you called, new student?</span>
         </div>
-        <div>
-            <p>What is the magical school you attend?</p>
-            <input type = "text" placeholder = "The Lightning Academy" />
+        <div class = "input-group mb-3">
+            <input type="text" class = "form-control" placeholder="Armingan the Artist" />
         </div>
-        <div>
+        <div class = "input-group mb-3">
+            <span class = "prompt">What is the magical school you attend?</span>
+        </div>
+        <div class = "input-group mb-3">
+            <input class = "form-control" type = "text" placeholder = "The Lightning Academy" />
+        </div>
+        <div class = "input-group mb-3">
+            <span></span>
+        </div>
+        <div class = "input-group mb-3">
+            <input class = "form-control" type="password" placeholder="Password" />
+        </div>
+        <div class = "prompt">
             <p>Need some inspiration? Visit this 3rd party service call to generate cool names.</p>
         </div>
-        <div>
-            <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Create Account</button>
+        <button type="submit" class = "btn btn-primary">Create Account</button>
       </form>
-
     </main>
 
     <footer>
+        <p>Creator: Daphne Plott 
+            <span>
+                <a href = "https://github.com/daphneplott/startup">GitHub Repository</a>
+            </span>
+        </p>
 
     </footer>
 </body>
