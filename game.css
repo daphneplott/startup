@@ -29,3 +29,8 @@ h1 {
 footer p{
     color: white;
 }
+
+.astronomy .card {
+    max-width: 200px;
+    min-width: 150px;
+}
