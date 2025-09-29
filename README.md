@@ -88,12 +88,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - Header, footer, and main content have variable display as copied from Simon.
+- [x] **Navigation elements** - Navigational elements are spread throughout a navbar, using bootstrap. The background of the navbar will stay on screen as you scroll down. 
+- [x] **Responsive to window resizing** - The elements are responsive to window sizing
+- [x] **Application elements** - On the front page, the welcome message has a background image, and two cards that link to the games. In the games, the astronomy game has a grid of cards, and the potions game has a drop-down form to pick the ingredients. The application also has a log in and create account forms
+- [x] **Application text content** - The text content has been styled. The game instructions have backgrounds to the text to make it more readable.
+- [x] **Application images** - The background images are centered and sized well. The images in the astronomy cards have the cards fitted to their size.
 
 ## 🚀 React part 1: Routing deliverable
 
