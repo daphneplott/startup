@@ -1,0 +1,26 @@
+.body {
+    background-image: url("CauldrenGreenSmoke.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+h1 {
+    font-family:'Lucida Handwriting';
+    color:white;
+    text-decoration: bold;
+}
+
+.instructions{
+    color:white;
+    background-color: black;
+    opacity: .7;
+    margin: 1em;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+
+footer p{
+    color: white;
+}

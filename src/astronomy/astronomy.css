@@ -1,12 +1,6 @@
-.astronomy {
+.body {
     background-image: url("StarrySky.jpg");
     background-size: cover;
-}
-
-.potions {
-    background-image: url("CauldrenGreenSmoke.jpg");
-    background-size:cover;
-    background-position:center;
 }
 
 h1 {
@@ -30,7 +24,7 @@ footer p{
     color: white;
 }
 
-.astronomy .card {
+.card {
     max-width: 200px;
     min-width: 150px;
 }

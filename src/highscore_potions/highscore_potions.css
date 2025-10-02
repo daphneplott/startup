@@ -1,0 +1,28 @@
+.body {
+    background-image: url("CauldrenGreenSmoke.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+h1 {
+    color:white;
+    justify-content: center;
+    padding: .3em;
+    margin: 0;
+    text-decoration: underline;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.highscores-box-potions {
+    background-color: aquamarine;
+    opacity:.7;
+}
+
+.highscores-box-potions li {
+    color:rgb(0, 0, 0);
+    padding: .8em 1em;
+    background-color:white;   
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    font-weight:bold;
+}

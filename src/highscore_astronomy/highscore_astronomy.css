@@ -1,13 +1,8 @@
-.astronomy {
+.body {
     background-image: url("StarrySky.jpg");
     background-size: cover;
 }
 
-.potions {
-    background-image: url("CauldrenGreenSmoke.jpg");
-    background-size:cover;
-    background-position:center;
-}
 
 h1 {
     color:white;
@@ -24,11 +19,6 @@ h1 {
     opacity: .7;
 }
 
-.highscores-box-potions {
-    background-color: aquamarine;
-    opacity:.7;
-}
-
 .highscores-box-astronomy li {
     color:darkblue;
     padding: .8em 1em;
@@ -37,10 +27,3 @@ h1 {
     font-weight:bold;
 }
 
-.highscores-box-potions li {
-    color:rgb(0, 0, 0);
-    padding: .8em 1em;
-    background-color:white;   
-    font-family:Verdana, Geneva, Tahoma, sans-serif; 
-    font-weight:bold;
-}
