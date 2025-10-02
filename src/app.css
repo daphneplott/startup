@@ -33,6 +33,10 @@ menu {
   list-style: none;
 }
 
+nav {
+  background-color: pink;
+}
+
 menu .nav-item {
   padding: 0 1em;
 }

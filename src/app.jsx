@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { Login } from '.login/login';
+import { Login } from './login/login';
 import { Potions } from './potions/potions';
 import { Home } from './home/home';
 import { HighscorePotions } from './highscore_potions/highscore_potions';
@@ -14,9 +14,32 @@ import { Astronomy } from './astronomy/astronomy';
 export default function App() {
     return (
         <BrowserRouter>
-            <div className="body bg-dark text-light">
+            <div className="body">
                 <header className="container-fluid">
-
+                    <nav className="navbar fixed-top">
+                        <menu className="navbar-nav nav justify-content-end">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="">
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="login">
+                                    Login
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="astronomy">
+                                    Astronomy
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="Potions">
+                                    Potions
+                                </NavLink>
+                            </li>
+                        </menu>
+                    </nav>
                 </header>
 
                 <Routes>
@@ -24,25 +47,27 @@ export default function App() {
                     <Route path='/potions' element={<Potions />} />
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
                     <Route path='/astronomy' element={<Astronomy />} />
-                    <Route path = '/highscore_astronomy' element = {<HighscoreAstronomy />} />
-                    <Route path = '/login' element = {<Login />} />
-                    <Route path = '/create_account' element = {<CreateAccount />} />
+                    <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/create_account' element={<CreateAccount />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
 
                 <footer className="bg-dark text-white-50">
                     <div className="container-fluid">
-                        <span className="text-reset">Author Name(s)</span>
-                        <a className="text-reset" href="https://github.com/webprogramming260/simon-react">
-                            Source
+                        <span className="text-reset">Daphne Plott</span>
+                        <a className="text-reset" href="https://github.com/daphneplott/startup">
+                            GitHub
                         </a>
                     </div>
+
                 </footer>
             </div>
+
         </BrowserRouter>
     );
 }
 
 function NotFound() {
-  return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
+    return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
 }
