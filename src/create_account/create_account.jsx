@@ -1,5 +1,6 @@
 import React from 'react';
 import './create_account.css'
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 
 export function CreateAccount() {
   return (
@@ -26,7 +27,10 @@ export function CreateAccount() {
         <div class = "prompt">
             <p>Need some inspiration? Visit this 3rd party service call to generate cool names.</p>
         </div>
-        <button type="submit" class = "btn btn-primary">Create Account</button>
+        <button type="submit" class = "btn btn-primary">
+            <NavLink className = "nav-link" to ="/">
+                Create Account
+            </NavLink></button>
       </form>
     </main>
   );
