@@ -1,13 +1,13 @@
 import React from 'react';
 import './login.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export function Login() {
   return (
     <main className="body container-fluid text-center">
         <div>
           <h1>Login</h1>
-          <form method="get" action="index.html">
+          <form method="get">
             <div class="input-group mb-3">
               <input class="form-control" type="text" placeholder="Username" />
             </div>

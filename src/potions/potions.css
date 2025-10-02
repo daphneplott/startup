@@ -24,3 +24,11 @@ h1 {
 footer p{
     color: white;
 }
+
+.brew {
+    background-color: aquamarine;
+}
+
+.mylink {
+    text-decoration: underline;
+}

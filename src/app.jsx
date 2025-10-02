@@ -34,7 +34,7 @@ export default function App() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="Potions">
+                                <NavLink className="nav-link" to="potions">
                                     Potions
                                 </NavLink>
                             </li>
