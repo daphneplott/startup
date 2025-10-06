@@ -99,9 +99,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - Vite was installed and bundled 
+- [x] **Components** - The jsx files now contain the HTML main pieces. The main jsx file contains the header and footer, and calls the other jsx files to fill in the main, just like in Simon
+- [x] **Router** - The pages now route, instead of displying the html pages, they contain the "to" in the NavLink for routing, just like in Simon
 
 ## 🚀 React part 2: Reactivity deliverable
 

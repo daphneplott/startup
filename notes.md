@@ -120,7 +120,7 @@ I also used SVG to make the icon and logo for the app. This turned out to be a p
 
 ## React Part 1: Routing
 
-Setting up Vite and React was pretty simple. I had a bit of trouble because of conflicting CSS. This isn't as straight forward as you would find with Svelte or Vue, but I made it work in the end. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way.
+Setting up Vite and React was pretty simple. You mostly just had to install all of the packages, and then you could access your website by running "npm run dev". In the routing, you basically just replace the main part of your page with a function that will display depending on what you put in as the link. It uses NavLink to basically pretend you're on another page, but it's really just functions. The only issue I had was that you can't have a custom nav bar for each page. You also cannot contain "style" tags inside the element, it all has to be CSS.
 
 ## React Part 2: Reactivity
 
