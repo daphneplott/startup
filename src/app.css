@@ -46,7 +46,7 @@ footer a {
 }
 
 .welcome {
-    background-image: url("FantasyCastleImage.jpg");
+    background-image: url("/FantasyCastleImage.jpg");
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;

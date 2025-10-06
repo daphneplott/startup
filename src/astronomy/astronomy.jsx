@@ -64,28 +64,28 @@ export function Astronomy() {
         <div class = "max_width_800 row m-3 h-100 row-cols-1 row-cols-md-4 g-16 d-flex justify-content-center align-items-center">
             <div class = "col"  >
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" />
+                    <img src = "BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" />
                     <div class = "card-img-overlay">
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/CassiopeiaConstellation.jpg" class = "card-img" alt = "Cassiopeia" />
+                    <img src = "CassiopeiaConstellation.jpg" class = "card-img" alt = "Cassiopeia" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img  src = "public/CygnusConstellation.jpg" class = "card-img" alt = "Cygnus" />
+                    <img  src = "CygnusConstellation.jpg" class = "card-img" alt = "Cygnus" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/DracoConstellation.jpg" class = "card-img" alt = "Draco" />
+                    <img src = "DracoConstellation.jpg" class = "card-img" alt = "Draco" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
@@ -93,28 +93,28 @@ export function Astronomy() {
         
             <div class = "col">
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/HydraConstellation.jpg" class = "card-img" alt = "Hydra" />
+                    <img src = "HydraConstellation.jpg" class = "card-img" alt = "Hydra" />
                     <div class = "card-img-overlay">
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/MonocerosConstellation.jpg" class = "card-img" alt = "Monoceros" />
+                    <img src = "MonocerosConstellation.jpg" class = "card-img" alt = "Monoceros" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img  src ="public/OrionConstellation.jpg" class = "card-img" alt = "Orion" />
+                    <img  src ="OrionConstellation.jpg" class = "card-img" alt = "Orion" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div class = "card card_in_astronomy_game ">
-                    <img src = "public/PegasusConstellation.jpg" class = "card-img" alt = "Pegasus" />
+                    <img src = "PegasusConstellation.jpg" class = "card-img" alt = "Pegasus" />
                     <div class = "card-img-overlay">                        
                     </div>
                 </div>
