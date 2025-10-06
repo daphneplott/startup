@@ -1,4 +1,4 @@
-.body {
+.bodyastronomy {
     background-image: url("StarrySky.jpg");
     background-size: cover;
 }
@@ -24,7 +24,24 @@ footer p{
     color: white;
 }
 
-.card {
+.card_in_astronomy_game {
     max-width: 200px;
     min-width: 150px;
+    margin-bottom: 10px;
+}
+
+.black-font {
+    color:black;
+}
+
+.max_wdith_800 {
+    max-width: 800px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.mylinkastronomy {
+    color: white;
 }

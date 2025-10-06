@@ -1,4 +1,4 @@
-.body {
+.bodypotions {
     background-image: url("CauldrenGreenSmoke.jpg");
     background-size:cover;
     background-position:center;
@@ -29,6 +29,6 @@ footer p{
     background-color: aquamarine;
 }
 
-.mylink {
+.mylinkpotions {
     text-decoration: underline;
 }

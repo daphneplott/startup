@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export function Potions() {
   return (
-    <main className="body">
+    <main className="bodypotions">
       <div className="instructions">
         <h1>Welcome to Potions Class!</h1>
         <p>For your potions class, you will be practicing mixing ingredients to create different potions. 
@@ -13,7 +13,7 @@ export function Potions() {
           The description of your potion will be given to you once the potion is mixed. 
           If it is not correct, you can keep trying until you make the correct concoction. Good luck!
         </p>
-        <NavLink className = "nav-link mylink" to = "/highscore_potions">
+        <NavLink className = "nav-link mylinkpotions" to = "/highscore_potions">
           View High Scores
         </NavLink>
       </div>
