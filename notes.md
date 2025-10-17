@@ -147,3 +147,155 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+## Midterm 1 Review
+
+In the following code, what does the link element do?
+- link elements are used to pull in stylesheets, or bootstrap, or probably js, or the favicon
+
+In the following code,  what does a div tag do?
+- scripting, structure, grouping
+
+In the following code, what is the difference between the #title and .grid selector?
+- # is an id, . selects a class
+
+In the following code, what is the difference between padding and margin?
+- padding is inside, margin is outside
+
+Given this HTML and this CSS how will the images be displayed using flex?
+- flex allows for the size to change in reference to something like the screen size
+
+What does the following padding CSS do?
+- padding create space inside the element, moves the edges of the box away from the text
+
+What does the following code using arrow syntax function declaration do?
+- ex: const add = (a, b) => a + b;
+- (a, b) defines the input
+- => shows what the function is doing, with the default as return
+- Additionally, you could define => const result = a + b ; return result
+
+What does the following code using map with an array output?
+- map creates a new array, with each element transformed with the specified function
+- numbers.map(num => num * num) will return a new array, with each element squared
+  - [1,2,3,4] --> [1,4,9,16]
+ 
+What does the following code output using getElementByID and addEventListener?
+- getElementByID returns the element with that ID
+   - use .innerHTML to change the inner text
+- addEventListener listens for an event, and then specifies the function to do when it hears the event
+  - events can include click, keydown, mouseover
+  
+What does the following line of Javascript do using a # selector?
+- Reminder - a # selector looks for something with that id
+
+Which of the following are true? (mark all that are true about the DOM)
+- Document Object Model
+- tree of objects - html --> (head, body) ; body --> (header, main) ; main --> (h1, p, a)
+- lets JS get, change, add, or delete any html or css
+- properties, methods, events
+
+By default, the HTML span element has a default CSS display property value of:
+- span is an inline element
+
+How would you use CSS to change all the div elements to have a background color of red?
+- div { background-color: red; }
+
+How would you display an image with a hyperlink in HTML?
+- img src within <> or </>
+
+In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
+- content - padding - border - margin
+
+Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
+- use spans, id or class selectors
+
+What will the following code output when executed using a for loop and console.log?
+- we love for loops!
+
+How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
+- document.getElementById("byu").style.color = "green"
+
+What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
+- See above notes about HTML tags
+
+How do you declare the document type to be html?
+- !DOCTYPE html inside <>
+
+What is valid javascript syntax for if, else, for, while, switch statements?
+- if (condition) {thing;} else if (condition) {thing;} else {thing}
+- for (init; condition; increment) {thing}
+- while (condition) {thing;}
+- let fruit = "apple" ; switch (fruit) {
+  case "banana":
+    console.log("Bananas are yellow.");
+    break;
+  case "apple":
+    console.log("Apples are red or green.");
+    break;
+  case "orange":
+    console.log("Oranges are orange.");
+    break;
+  default:
+    console.log("Unknown fruit.");
+}
+
+What is the correct syntax for creating a javascript object?
+- const varname = { key: "value", key: "value" }
+- you can also add properties later
+- const varname = new Object({dic})
+- use a function like a class init method and then call new
+
+Is it possible to add new properties to javascript objects?
+- yes - varname.propertyname = "value"
+
+If you want to include JavaScript on an HTML page, which tag do you use?
+- script <> </>
+
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+- use span, or replace innerHTML with mostly the same
+
+Which of the following correctly describes JSON?
+- JavaScript Object Notation
+
+What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
+- chmod - change file permissions - option mode file
+- pwd - gets current directory
+- cd - change directory
+- ls - lists files in the direcotry
+- vim - opens new text file in vim
+- nano - text editor through the terminal
+- mkdir - create new directory
+- mv - move or rename file
+- rm - remove files
+- man - manual?
+- ssh - establish secure connection to remote server
+- ps - process status
+- wget - get files from the web
+- sudo - superuser do, run with root-level permissions
+
+Which of the following console command creates a remote shell session?
+- ssh
+
+Which of the following is true when the -la parameter is specified for the ls console command?
+- long listing (details), all files (including hidden)
+
+Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+- TLD - .click
+- domain - bozo.click
+- subdomain - banana.fruit.bozo.click
+
+Is a web certificate is necessary to use HTTPS.
+- Yes
+
+Can a DNS A record can point to an IP address or another A record.
+- an A record stands for "addres" - it maps a domain name to an IP address
+- it doesn't seem to be that an A record can point to another A record
+- you can use CNAME to point to another A record, like an alias for the website
+
+Port 443, 80, 22 is reserved for which protocol?
+- 443 - SSH or HTTPS
+- 80 - HTTP
+- 22 - remote desktop protocol
+
+What will the following code using Promises output when executed?
+- Promises run asynchronously, so they may get done later
+- If you await the promise before moving on, then it will execute first
