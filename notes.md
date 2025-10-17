@@ -156,7 +156,7 @@ In the following code,  what does a div tag do?
 - scripting, structure, grouping
 
 In the following code, what is the difference between the #title and .grid selector?
-- # is an id, . selects a class
+- the # is an id, . selects a class
 
 In the following code, what is the difference between padding and margin?
 - padding is inside, margin is outside
