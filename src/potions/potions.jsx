@@ -1,10 +1,39 @@
 import React from 'react';
 import './potions.css';
 import { NavLink } from 'react-router-dom';
-import { GeneratePotion } from './generate_potion';
 
 
 export function Potions() {
+  const [potion, setPotion] = React.useState('')
+  const [ing1, setIng1] = React.useState('')
+  const [ing2, setIng2] = React.useState('')
+  const [ing3, setIng3] = React.useState('')
+  const [score, setScore] = React.useState(1000)
+
+  React.useEffect(() => {
+
+    const Potion1 = { name: "Elixir of Metamorphosis", attr1: "Gold color", ing1:"Gold Dust", attr2: "transformative power", ing3: "Snake Skin", attr3: "extra strength", ing2: "Lotus"}
+    const Potion2 = { name: "Unshifting Serum", attr1: "Green color",ing1:"Mint Leaves", attr2: "transformative power", ing3: "Snake Skin", attr3: "restorative", ing2: "Black Sand" }
+    const Potion3 = { name: "Venus's Whisper", attr1: "Red color", ing1:"Poppy Seed", attr2: "power of love", ing3: "Mistletoe", attr3: "extra strength", ing2: "Lotus" }
+    const Potion4 = { name: "Bitterheart Brew", attr1: "Red color",ing1:"Poppy Seed", attr2: "power of love", ing3: "Mistletoe", attr3: "inverted effect", ing2: "Jellyfish Venom" }
+    const Potion5 = { name: "Cure of Cupid", attr1: "Gold color", ing1:"Gold Dust", attr2: "power of love", ing3: "Mistletoe", attr3: "restorative", ing2: "Black Sand" }
+    const Potion6 = { name: "Felix's Favor", attr1: "Green color", ing1:"Mint Leaves", attr2: "power of luck", ing3: "Four Leaf Clover", attr3: "extra strength", ing2: "Lotus" }
+    const Potion7 = { name: "Black Cat Potion", attr1: "Gold color", ing1:"Gold Dust", attr2: "power of luck", ing3: "Four Leaf Clover",attr3: "inverted effect", ing2: "Jellyfish Venom"  }
+    const Potion8 = { name: "Chance Cleanser", attr1: "Red color",ing1:"Poppy Seed", attr2: "power of luck", ing3: "Four Leaf Clover",attr3: "restorative", ing2: "Black Sand" }
+
+    const potions = [Potion1, Potion2, Potion3, Potion4, Potion5, Potion6, Potion7, Potion8]
+    setPotion(potions[Math.floor(Math.random() * 8)]);
+  }, []);
+
+  const checkAnswer = () => {
+    if (ing1 == potion.ing1 && ing2 == potion.ing2 && ing3 == potion.ing3) {
+      console.log("Correct");
+    } else {
+      console.log("Incorrect")
+    }
+  }
+
+
   return (
     <main className="bodypotions">
       <div className="instructions">
@@ -20,18 +49,16 @@ export function Potions() {
         </NavLink>
       </div>
 
-
-
-      <div className = "instructions">
-        < GeneratePotion />
+      <div className="instructions">
+        <p >Assignment: {potion.name} <br />Attributes: {potion.attr1}, {potion.attr2}, {potion.attr3}</p>
       </div>
 
-
-      <form>
+      <form onSubmit = {(event) => event.preventDefault()}>
         <div class="input-group mb-3">
           <span class="input-group-text">Ingredient 1: </span>
 
-          <select id="select" name="varSelect" class="btn btn-secondary" aria-placeholder="">
+          <select id="select" name="varSelect" class="btn btn-secondary"
+            onChange={(e) => setIng1(e.target.value)}>
             <option>Gold Dust</option>
             <option>Poppy Seed</option>
             <option>Mint Leaves</option>
@@ -41,7 +68,8 @@ export function Potions() {
         <div class="input-group mb-3">
           <span class="input-group-text">Ingredient 2: </span>
 
-          <select id="select" name="varSelect" class="btn btn-secondary">
+          <select id="select" name="varSelect" class="btn btn-secondary"
+            onChange={(e) => setIng2(e.target.value)}>
             <option>Jellyfish Venom</option>
             <option>Black Sand</option>
             <option>Lotus</option>
@@ -51,14 +79,15 @@ export function Potions() {
         <div class="input-group mb-3">
           <span class="input-group-text">Ingredient 3: </span>
 
-          <select id="select" name="varSelect" class="btn btn-secondary">
+          <select id="select" name="varSelect" class="btn btn-secondary"
+            onChange={(e) => setIng3(e.target.value)}>
             <option>Snake Skin</option>
             <option>Mistletoe</option>
             <option>Four Leaf Clover</option>
           </select>
         </div>
 
-        <button type="submit" class="btn brew">
+        <button onClick = {checkAnswer} class="btn brew">
           Brew Potion
         </button>
       </form>
@@ -82,7 +111,7 @@ export function Potions() {
         -- */}
 
 
-      
+
 
       {/* function updateScoresLocal(newScore) {
         let scores = [];
@@ -111,4 +140,5 @@ export function Potions() {
       localStorage.setItem('scores', JSON.stringify(scores));
   }  */}
     </main>
-  ); }
+  );
+}
