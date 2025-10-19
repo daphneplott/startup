@@ -4,18 +4,19 @@ import { NavLink } from 'react-router-dom';
 import { AuthState } from './authState';
 
 
-export function Login() {
+export function Login(props) {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [schoolName,setSchoolName] = React.useState('Hogwarts')
   
   async function loginUser() {
     localStorage.setItem('userName',userName);
-    setSchoolName(localStorage.getItem(userName))
-    if (!schoolName) {
-      setSchoolName('Hogwarts')
-    }
-    props.setAuthChange(userName, AuthState.Authenticated,schoolName);
+    setSchoolName(localStorage.getItem(userName));
+    // if (schoolName == null) {
+    //   setSchoolName('Hogwarts')
+    // };
+    localStorage.setItem('schoolName',schoolName);
+    props.onAuthChange(userName, AuthState.Authenticated,schoolName);
   }
 
   return (

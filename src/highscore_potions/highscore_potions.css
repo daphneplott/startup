@@ -19,7 +19,7 @@ h1 {
     opacity:.7;
 }
 
-.highscores-box-potions li {
+.highscores-box-potions tr {
     color:rgb(0, 0, 0);
     padding: .8em 1em;
     background-color:white;   

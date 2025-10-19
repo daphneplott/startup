@@ -30,11 +30,13 @@ export function Potions(props) {
   const checkAnswer = () => {
     if (ing1 == potion.ing1 && ing2 == potion.ing2 && ing3 == potion.ing3) {
       console.log("Correct");
-      alert("Correct! Your score is ", score, ".")
-      let newScore = { name: userName, school: schoolName, score: score}
-      savescore(score);
+      alert("Correct! Your score is " + score + ".");
+      console.log(score);
+      let newScore = { name: userName, school: schoolName, score: score};
+      savescore(newScore);
     } else {
       console.log("Incorrect")
+      alert("Incorrect - please try again.")
       // console.log(ing1, "+", potion.ing1, ";", ing2, "+", potion.ing2, ";",ing3, "+", potion.ing3)
       setScore(score - 100)
     }
@@ -42,7 +44,7 @@ export function Potions(props) {
 
   function savescore(newScore) {
     let scores = [];
-    const scoresText = localStorage.getItem('scores');
+    const scoresText = localStorage.getItem('scores_potions');
     if (scoresText) {
       scores = JSON.parse(scoresText);
     }
@@ -62,7 +64,7 @@ export function Potions(props) {
       scores.length = 10;
     }
 
-    localStorage.setItem('scores',JSON.stringify(scores));
+    localStorage.setItem('scores_potions',JSON.stringify(scores));
   }
 
   return (

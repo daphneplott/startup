@@ -11,7 +11,8 @@ export function CreateAccount(props) {
     async function createUser() {
         localStorage.setItem('userName', userName);
         localStorage.setItem(userName, schoolName);
-        props.setAuthChange(userName, AuthState.Authenticated,schoolName);
+        localStorage.setItem('schoolName',schoolName);
+        props.onAuthChange(userName, AuthState.Authenticated,schoolName);
     }
 
     return (

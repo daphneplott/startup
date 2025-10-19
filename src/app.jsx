@@ -63,7 +63,7 @@ export default function App() {
 
                 <Routes>
                     <Route path='/' element={<Home />} exact />
-                    <Route path='/potions' element={<Potions />} />
+                    <Route path='/potions' element={<Potions userName = {userName} schoolName = {schoolName}/>} />
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
                     <Route path='/astronomy' element={<Astronomy userName = {userName} schoolName = {schoolName} />} />
                     <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
@@ -71,11 +71,13 @@ export default function App() {
                                                         setAuthState(authState);
                                                         setUserName(userName);
                                                         setSchoolName(schoolName);
+                                                        console.log(authState);
                     }} />} />
                     <Route path='/create_account' element={<CreateAccount onAuthChange={(userName, authState,schoolName) => {
                                                         setAuthState(authState);
                                                         setUserName(userName); 
-                                                        setSchoolName(schoolName);}}
+                                                        setSchoolName(schoolName);
+                                                        console.log(authState)}}
                                                         />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
