@@ -65,7 +65,7 @@ export default function App() {
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
                     <Route path='/astronomy' element={<Astronomy />} />
                     <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
-                    <Route path='/login' element={<Login />} />
+                    <Route path='/login' element={<Login userName={userName}/>} />
                     <Route path='/create_account' element={<CreateAccount />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
