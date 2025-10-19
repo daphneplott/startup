@@ -1,6 +1,7 @@
 import React from 'react';
 import './login.css';
 import { NavLink } from 'react-router-dom';
+import { AuthState } from './authState';
 
 export function Login() {
   return (
@@ -30,4 +31,8 @@ export function Login() {
         </div>
       </main>
   );
+}
+
+export function Logout() {
+  const 
 }
