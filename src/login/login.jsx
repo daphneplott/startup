@@ -3,16 +3,16 @@ import './login.css';
 import { NavLink } from 'react-router-dom';
 import { AuthState } from './authState';
 
-export function Login({ userName }) {
-  const [userName, setUserName] = React.useState(props.userName);
+
+export function Login() {
+  const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
   
   async function loginUser() {
     localStorage.setItem('userName',userName);
-    /*props.onLogin(userName);*/
+    props.setAuthChange(userName, AuthState.Authenticated);
   }
 
-  
   return (
     <main className="body container-fluid text-center">
         <div>
@@ -22,9 +22,13 @@ export function Login({ userName }) {
               <input class="form-control" type="text" value = {userName} onChange = {(e) => setUserName(e.target.value)} placeholder="Username" />
             </div>
             <div class="input-group mb-3">
-              <input class="form-control" type="password" onChange = {(e) => setPassword(e.target.value)} placeholder="Password" />
+              <input class="form-control" type="password" 
+              onChange = {(e) => setPassword(e.target.value)} 
+              placeholder="Password" />
             </div>
-            <button type="submit" class="btn btn-primary" onClick={() => loginUser()} disabled={!userName || !password}>
+            <button type="submit" class="btn btn-primary" 
+            onClick={() => loginUser()}
+            disabled={!userName || !password}>
               <NavLink className = "nav-link" to = "/" >
               Login
               </NavLink>

@@ -2,19 +2,20 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { Login, Logout } from './login/login';
+import { Login } from './login/login';
 import { Potions } from './potions/potions';
 import { Home } from './home/home';
 import { HighscorePotions } from './highscore_potions/highscore_potions';
 import { HighscoreAstronomy } from './highscore_astronomy/highscore_astronomy';
 import { CreateAccount } from './create_account/create_account';
 import { Astronomy } from './astronomy/astronomy';
-
+import { AuthState } from './login/authState';
 
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-    const currentAuthState = userName ? AuthState.authenticated : AuthState.Unauthenticated;
+    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
+
     
     return (
         <BrowserRouter>
@@ -38,13 +39,14 @@ export default function App() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="" 
                                 onClick={() => {
-                                    setAuthState(Unauthenticated);
+                                    setAuthState(AuthState.Unauthenticated);
                                     setUserName('');
+                                    localStorage.setItem("userName",'')
                                 }} >
                                     Logout
                                 </NavLink>
                             </li>
-                            ) }
+                            ) } 
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="astronomy">
                                     Astronomy
@@ -65,8 +67,14 @@ export default function App() {
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
                     <Route path='/astronomy' element={<Astronomy />} />
                     <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
-                    <Route path='/login' element={<Login userName={userName}/>} />
-                    <Route path='/create_account' element={<CreateAccount />} />
+                    <Route path='/login' element={<Login onAuthChange={(userName, authState) => {
+                                                        setAuthState(authState);
+                                                        setUserName(userName);
+                    }} />} />
+                    <Route path='/create_account' element={<CreateAccount onAuthChange={(userName, authState) => {
+                                                        setAuthState(authState);
+                                                        setUserName(userName); }}
+                                                        />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
 
