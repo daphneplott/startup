@@ -15,7 +15,7 @@ export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
-
+    const [schoolName, setSchoolName] = React.useState('Hogwarts')
     
     return (
         <BrowserRouter>
@@ -65,15 +65,17 @@ export default function App() {
                     <Route path='/' element={<Home />} exact />
                     <Route path='/potions' element={<Potions />} />
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
-                    <Route path='/astronomy' element={<Astronomy />} />
+                    <Route path='/astronomy' element={<Astronomy userName = {userName} schoolName = {schoolName} />} />
                     <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
-                    <Route path='/login' element={<Login onAuthChange={(userName, authState) => {
+                    <Route path='/login' element={<Login onAuthChange={(userName, authState, schoolName) => {
                                                         setAuthState(authState);
                                                         setUserName(userName);
+                                                        setSchoolName(schoolName);
                     }} />} />
-                    <Route path='/create_account' element={<CreateAccount onAuthChange={(userName, authState) => {
+                    <Route path='/create_account' element={<CreateAccount onAuthChange={(userName, authState,schoolName) => {
                                                         setAuthState(authState);
-                                                        setUserName(userName); }}
+                                                        setUserName(userName); 
+                                                        setSchoolName(schoolName);}}
                                                         />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>

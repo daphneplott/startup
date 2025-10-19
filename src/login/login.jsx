@@ -7,10 +7,15 @@ import { AuthState } from './authState';
 export function Login() {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [schoolName,setSchoolName] = React.useState('Hogwarts')
   
   async function loginUser() {
     localStorage.setItem('userName',userName);
-    props.setAuthChange(userName, AuthState.Authenticated);
+    setSchoolName(localStorage.getItem(userName))
+    if (!schoolName) {
+      setSchoolName('Hogwarts')
+    }
+    props.setAuthChange(userName, AuthState.Authenticated,schoolName);
   }
 
   return (

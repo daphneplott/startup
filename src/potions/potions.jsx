@@ -3,11 +3,13 @@ import './potions.css';
 import { NavLink } from 'react-router-dom';
 
 
-export function Potions() {
+export function Potions(props) {
+  const userName = props.userName;
+  const schoolName = props.schoolName;
   const [potion, setPotion] = React.useState('')
-  const [ing1, setIng1] = React.useState('')
-  const [ing2, setIng2] = React.useState('')
-  const [ing3, setIng3] = React.useState('')
+  const [ing1, setIng1] = React.useState('Gold Dust')
+  const [ing2, setIng2] = React.useState('Jellyfish Venom')
+  const [ing3, setIng3] = React.useState('Snake Skin')
   const [score, setScore] = React.useState(1000)
 
   React.useEffect(() => {
@@ -28,11 +30,40 @@ export function Potions() {
   const checkAnswer = () => {
     if (ing1 == potion.ing1 && ing2 == potion.ing2 && ing3 == potion.ing3) {
       console.log("Correct");
+      alert("Correct! Your score is ", score, ".")
+      let newScore = { name: userName, school: schoolName, score: score}
+      savescore(score);
     } else {
       console.log("Incorrect")
+      // console.log(ing1, "+", potion.ing1, ";", ing2, "+", potion.ing2, ";",ing3, "+", potion.ing3)
+      setScore(score - 100)
     }
   }
 
+  function savescore(newScore) {
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (newScore.score > prevScore.score) {
+        scores.splice(i,0,newScore);
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      scores.push(newScore);
+    }
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    localStorage.setItem('scores',JSON.stringify(scores));
+  }
 
   return (
     <main className="bodypotions">
@@ -92,13 +123,6 @@ export function Potions() {
         </button>
       </form>
 
-      {/*Still needs to be done with other technologies:
-        
-        - Randomly generate a prompt for which potion needs to be made
-        - Validate the input to see if the potion is correct or not
-        - Let the player try again
-        - Keep track of the number of tries to produce a score 
-        */}
       {/* --Potions:
         - A potion of transformation (Snake skin, lotus, gold dust)
         - A potion to reverse a transformation (Snake skin, black sand, mint leaves)
@@ -111,34 +135,6 @@ export function Potions() {
         -- */}
 
 
-
-
-      {/* function updateScoresLocal(newScore) {
-        let scores = [];
-      const scoresText = localStorage.getItem('scores');
-      if (scoresText) {
-        scores = JSON.parse(scoresText);
-    }
-
-      let found = false;
-      for (const [i, prevScore] of scores.entries()) {
-      if (newScore.score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-      found = true;
-      break;
-      }
-    }
-
-      if (!found) {
-        scores.push(newScore);
-    }
-
-    if (scores.length > 10) {
-        scores.length = 10;
-    }
-
-      localStorage.setItem('scores', JSON.stringify(scores));
-  }  */}
     </main>
   );
 }
