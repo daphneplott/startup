@@ -4,12 +4,17 @@ import { NavLink } from 'react-router-dom'
 
 export function Astronomy() {
 
+    const [flippedTwo, setFlippedTwo] = React.useState(true);
+    const [lastTwo, setLastTwo] = React.useState([-1,-1])
+
     {/* Steps: 
         - Randomly assign a card to an id
         - To the basic card, have an onclicked that takes in the id, and then flips it*/}
     
     let numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     {/*SHUFLLE NUMBERS*/}
+
+    let answers = ["BD", "Cs", "Cy", "Dr", "Hy","Mo","Or","Pg","BD","Cs","Cy","Dr","Hy","Mo","Or","Pg"];
 
     let cards = ['<img src = "BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" /><div class = "card-img-overlay"></div>',
         '<img src = "CassiopeiaConstellation.jpg" class = "card-img" alt = "Cassiopeia" /><div class = "card-img-overlay"></div>',
@@ -30,8 +35,18 @@ export function Astronomy() {
 
     function reveal(i) {
         let element = document.getElementById(i);
-        element.innerHTML = cards[numbers[i-1]];     
+        element.innerHTML = cards[numbers[i-1]];   
+        setLastTwo();
+        console.log(lastTwo);
     };
+
+    React.useEffect( () => {
+        if (flippedTwo) {
+            // Check for a match
+            // Disable matches
+            // Flip everything back
+        }
+    }, [flippedTwo] )
 
 
   return (
