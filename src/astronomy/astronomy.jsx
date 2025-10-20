@@ -8,10 +8,10 @@ export function Astronomy() {
         - Randomly assign a card to an id
         - To the basic card, have an onclicked that takes in the id, and then flips it*/}
     
-    numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    let numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
     {/*SHUFLLE NUMBERS*/}
 
-    cards = ['<img src = "BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" /><div class = "card-img-overlay"></div>',
+    let cards = ['<img src = "BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" /><div class = "card-img-overlay"></div>',
         '<img src = "CassiopeiaConstellation.jpg" class = "card-img" alt = "Cassiopeia" /><div class = "card-img-overlay"></div>',
         '<img  src = "CygnusConstellation.jpg" class = "card-img" alt = "Cygnus" /><div class = "card-img-overlay"></div>',
         '<img src = "DracoConstellation.jpg" class = "card-img" alt = "Draco" /><div class = "card-img-overlay"></div>',
@@ -30,7 +30,7 @@ export function Astronomy() {
 
     function reveal(i) {
         let element = document.getElementById(i);
-        element.innHTML = cards[numbers[i-1]];       
+        element.innerHTML = cards[numbers[i-1]];     
     };
 
 
@@ -66,28 +66,28 @@ export function Astronomy() {
         <div class = "max_width_800 row m-3 h-100 row-cols-1 row-cols-md-4 g-16 d-flex justify-content-center align-items-center">
             <div class = "col"  >
                 <div id = "1" class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(1)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = "2" class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(2)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = "3" class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(3)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '4' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(4)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
@@ -95,28 +95,28 @@ export function Astronomy() {
 
             <div class = "col"  >
                 <div id = '5' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(5)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '6' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(6)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '7' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(7)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '8' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(8)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
@@ -124,28 +124,28 @@ export function Astronomy() {
 
             <div class = "col"  >
                 <div id = '9' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(9)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '10' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(10)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '11' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(11)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '12' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(12)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
@@ -153,28 +153,28 @@ export function Astronomy() {
 
             <div class = "col"  >
                 <div id = '13' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(13)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '14' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(14)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '15' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(15)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
             </div>
             <div class = "col" >
                 <div id = '16' class = "card card_in_astronomy_game btn btn-secondary">
-                    <div class="card-body">
+                    <div onClick = {() => reveal(16)} class="card-body">
                         <p  class="card-title black-font">Flip</p>
                     </div>
                 </div>
