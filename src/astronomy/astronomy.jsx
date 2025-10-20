@@ -2,15 +2,20 @@ import React from 'react';
 import "./astronomy.css"
 import { NavLink } from 'react-router-dom'
 
-export function Astronomy() {
+export function Astronomy(props) {
+
+    const userName = props.userName;
+    const schoolName = props.schoolName;
+    const authState = props.authState;
 
     const [flippedTwo, setFlippedTwo] = React.useState(true);
+    const [numbers, setNumbers] = React.useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     const [prev, setPrev] = React.useState(0);
     const [current, setCurrent] = React.useState(0);
     const [score, setScore] = React.useState(1400);
     const [count, setCount] = React.useState(0);
-    const [disabled, setDisabled] = React.useState([false,false,false,false,false,false,false,false,
-                    false, false,false,false,false,false,false,false
+    const [disabled, setDisabled] = React.useState([false, false, false, false, false, false, false, false,
+        false, false, false, false, false, false, false, false
     ]);
 
     const updateValue = (index, newValue) => {
@@ -21,11 +26,22 @@ export function Astronomy() {
     {/* Steps: 
         - Randomly assign a card to an id
         - To the basic card, have an onclicked that takes in the id, and then flips it*/}
-    
-    let numbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-    {/*SHUFLLE NUMBERS*/}
+    {/*SHUFLLE NUMBERS*/ }
+    const shuffleArray = (array) => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    };
 
-    let answers = ["BD", "Cs", "Cy", "Dr", "Hy","Mo","Or","Pg","BD","Cs","Cy","Dr","Hy","Mo","Or","Pg"];
+    
+    React.useEffect(() => {
+        setNumbers(shuffleArray(numbers));
+    },[])
+
+    let answers = ["BD", "Cs", "Cy", "Dr", "Hy", "Mo", "Or", "Pg", "BD", "Cs", "Cy", "Dr", "Hy", "Mo", "Or", "Pg"];
 
     let cards = ['<img src = "BigDipperConstellation.jpg" class = "card-img" alt = "Big Dipper" /><div class = "card-img-overlay"></div>',
         '<img src = "CassiopeiaConstellation.jpg" class = "card-img" alt = "Cassiopeia" /><div class = "card-img-overlay"></div>',
@@ -49,67 +65,96 @@ export function Astronomy() {
     // ]
 
     function reveal(i) {
-        if (!disabled[numbers[i-1]]) {
-            console.log(!disabled[numbers[i-1]]);
+        if (!disabled[numbers[i - 1]]) {
+            console.log(!disabled[numbers[i - 1]]);
             console.log(disabled);
-        let element = document.getElementById(i);
-        element.innerHTML = cards[numbers[i-1]];   
-        setPrev(current);
-        setCurrent(i);
-        setFlippedTwo(!flippedTwo);
+            let element = document.getElementById(i);
+            element.innerHTML = cards[numbers[i - 1]];
+            setPrev(current);
+            setCurrent(i);
+            setFlippedTwo(!flippedTwo);
         }
     };
 
-    React.useEffect( () => {
+    React.useEffect(() => {
         if (flippedTwo && current != prev) {
             setScore(score - 50);
             // Check for a match
             // Disable matches
             // Flip everything back
-            if (answers[numbers[current-1]] == answers[numbers[prev-1]]) {
-                console.log("match", current,prev,answers[numbers[current-1]],answers[numbers[prev-1]]);
-                updateValue(current-1,true);
-                updateValue(prev-1,true);
+            if (answers[numbers[current - 1]] == answers[numbers[prev - 1]]) {
+                console.log("match", current, prev, answers[numbers[current - 1]], answers[numbers[prev - 1]]);
+                updateValue(current - 1, true);
+                updateValue(prev - 1, true);
                 // disabled[numbers[current-1]] = true;
                 // disabled[numbers[prev-1]] = true;
-                console.log(disabled[numbers[prev-1]], disabled[numbers[current-1]])
+                console.log(disabled[numbers[prev - 1]], disabled[numbers[current - 1]])
                 setCount(count + 1);
             };
-            setTimeout( () => {
-            let element = document.getElementById(current);
-            element.innerHTML = "<p  class='card-title black-font'>Flip</p>"; 
-            let element2 = document.getElementById(prev)
-            element2.innerHTML = "<p  class='card-title black-font'>Flip</p>"; 
+            setTimeout(() => {
+                let element = document.getElementById(current);
+                element.innerHTML = "<p  class='card-title black-font'>Flip</p>";
+                let element2 = document.getElementById(prev)
+                element2.innerHTML = "<p  class='card-title black-font'>Flip</p>";
             }, 2000);
-    }
-    }, [flippedTwo] )
+        }
+    }, [flippedTwo])
 
-    React.useEffect( () => {
+    React.useEffect(() => {
         if (count == 8) {
             alert("You matched them all! You scored " + score + " points.")
+            if (authState == AuthState.Authenticated) {
+                let newScore = { name: userName, school: schoolName, score: score };
+                savescore(newScore);
+            }
         }
-    }, [count] );
+    }, [count]);
+
+    function savescore(newScore) {
+        let scores = [];
+        const scoresText = localStorage.getItem('scores_astronomy');
+        if (scoresText) {
+            scores = JSON.parse(scoresText);
+        }
+
+        let found = false;
+        for (const [i, prevScore] of scores.entries()) {
+            if (newScore.score > prevScore.score) {
+                scores.splice(i, 0, newScore);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            scores.push(newScore);
+        }
+        if (scores.length > 10) {
+            scores.length = 10;
+        }
+
+        localStorage.setItem('scores_astronomy', JSON.stringify(scores));
+    }
 
 
-  return (
-        <main className = "bodyastronomy">
-        <div className = "instructions" >
-            <h1>Welcome to Astronomy Class!</h1>
-            <p>For your astronomy class, you will be practicing your identification of important constellations. 
-              For this assessment, you will pick a card to reveal it. 
-              The card will either contain the image of a consetellation, or the name of it. 
-              You will then pick another card. If the constellations are a match, you will win points. 
-              If not, your revealed cards will be flipped over again. Good luck!
-            </p>
-            <NavLink className = "NavLink mylinkastronomy" to = "/highscore_astronomy">
-                View High Scores
-            </NavLink>
+    return (
+        <main className="bodyastronomy">
+            <div className="instructions" >
+                <h1>Welcome to Astronomy Class!</h1>
+                <p>For your astronomy class, you will be practicing your identification of important constellations.
+                    For this assessment, you will pick a card to reveal it.
+                    The card will either contain the image of a consetellation, or the name of it.
+                    You will then pick another card. If the constellations are a match, you will win points.
+                    If not, your revealed cards will be flipped over again. Good luck!
+                </p>
+                <NavLink className="NavLink mylinkastronomy" to="/highscore_astronomy">
+                    View High Scores
+                </NavLink>
 
-        </div>
+            </div>
 
 
 
-        {/* For the astronomy game, it will have 16 buttons, which you can click to flip. 8 of the buttons will have images, 
+            {/* For the astronomy game, it will have 16 buttons, which you can click to flip. 8 of the buttons will have images, 
         and 8 of the buttons will have constellation names.
         
         Need to be figured out using further technologies:
@@ -120,125 +165,125 @@ export function Astronomy() {
         - Some sort of longterm couting to calculate a score */}
 
 
-        <div class = "max_width_800 row m-3 h-100 row-cols-1 row-cols-md-4 g-16 d-flex justify-content-center align-items-center">
-            <div class = "col"  >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div  id = "1" disabled = {disabled[numbers[0]]} onClick = {() => reveal(1)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+            <div class="max_width_800 row m-3 h-100 row-cols-1 row-cols-md-4 g-16 d-flex justify-content-center align-items-center">
+                <div class="col"  >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id="1" disabled={disabled[numbers[0]]} onClick={() => reveal(1)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = "2" disabled = {disabled[numbers[1]]} onClick = {() => reveal(2)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id="2" disabled={disabled[numbers[1]]} onClick={() => reveal(2)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div  class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = "3" disabled = {disabled[numbers[2]]} onClick = {() => reveal(3)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id="3" disabled={disabled[numbers[2]]} onClick={() => reveal(3)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div  id = '4' disabled = {disabled[numbers[3]]} onClick = {() => reveal(4)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='4' disabled={disabled[numbers[3]]} onClick={() => reveal(4)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class = "col"  >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '5' disabled = {disabled[numbers[4]]} onClick = {() => reveal(5)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col"  >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='5' disabled={disabled[numbers[4]]} onClick={() => reveal(5)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div  class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '6' disabled = {disabled[numbers[5]]} onClick = {() => reveal(6)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='6' disabled={disabled[numbers[5]]} onClick={() => reveal(6)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div  class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '7' disabled = {disabled[numbers[6]]} onClick = {() => reveal(7)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='7' disabled={disabled[numbers[6]]} onClick={() => reveal(7)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '8' disabled = {disabled[numbers[7]]} onClick = {() => reveal(8)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='8' disabled={disabled[numbers[7]]} onClick={() => reveal(8)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class = "col"  >
-                <div  class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '9' disabled = {disabled[numbers[8]]} onClick = {() => reveal(9)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col"  >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='9' disabled={disabled[numbers[8]]} onClick={() => reveal(9)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div  class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '10' disabled = {disabled[numbers[9]]} onClick = {() => reveal(10)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='10' disabled={disabled[numbers[9]]} onClick={() => reveal(10)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '11' disabled = {disabled[numbers[10]]} onClick = {() => reveal(11)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='11' disabled={disabled[numbers[10]]} onClick={() => reveal(11)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '12' disabled = {disabled[numbers[11]]} onClick = {() => reveal(12)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='12' disabled={disabled[numbers[11]]} onClick={() => reveal(12)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class = "col"  >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '13' disabled = {disabled[numbers[12]]} onClick = {() => reveal(13)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
+                <div class="col"  >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='13' disabled={disabled[numbers[12]]} onClick={() => reveal(13)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='14' disabled={disabled[numbers[13]]} onClick={() => reveal(14)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='15' disabled={disabled[numbers[14]]} onClick={() => reveal(15)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" >
+                    <div class="card card_in_astronomy_game btn btn-secondary">
+                        <div id='16' disabled={disabled[numbers[15]]} onClick={() => reveal(16)} class="card-body">
+                            <p class="card-title black-font">Flip</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '14' disabled = {disabled[numbers[13]]} onClick = {() => reveal(14)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
-                    </div>
-                </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '15' disabled = {disabled[numbers[14]]} onClick = {() => reveal(15)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
-                    </div>
-                </div>
-            </div>
-            <div class = "col" >
-                <div class = "card card_in_astronomy_game btn btn-secondary">
-                    <div id = '16' disabled = {disabled[numbers[15]]} onClick = {() => reveal(16)} class="card-body">
-                        <p  class="card-title black-font">Flip</p>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </main>
-  );
+        </main>
+    );
 }
 
 

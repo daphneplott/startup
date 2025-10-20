@@ -67,8 +67,8 @@ export function HighscoreAstronomy() {
           <tr>
             <th>#</th>
             <th>Name</th>
+            <th>School</th>
             <th>Score</th>
-            <th>Date</th>
           </tr>
         </thead>
         <tbody id='scores'>{scoreRows}</tbody>

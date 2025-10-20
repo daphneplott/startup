@@ -63,9 +63,9 @@ export default function App() {
 
                 <Routes>
                     <Route path='/' element={<Home />} exact />
-                    <Route path='/potions' element={<Potions userName = {userName} schoolName = {schoolName}/>} />
+                    <Route path='/potions' element={<Potions userName = {userName} schoolName = {schoolName} authState = {authState}/>} />
                     <Route path='/highscore_potions' element={<HighscorePotions />} />
-                    <Route path='/astronomy' element={<Astronomy userName = {userName} schoolName = {schoolName} />} />
+                    <Route path='/astronomy' element={<Astronomy userName = {userName} schoolName = {schoolName} authState = {authState} />} />
                     <Route path='/highscore_astronomy' element={<HighscoreAstronomy />} />
                     <Route path='/login' element={<Login onAuthChange={(userName, authState, schoolName) => {
                                                         setAuthState(authState);

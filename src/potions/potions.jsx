@@ -1,11 +1,13 @@
 import React from 'react';
 import './potions.css';
 import { NavLink } from 'react-router-dom';
+import { AuthState } from '../login/authState';
 
 
 export function Potions(props) {
   const userName = props.userName;
   const schoolName = props.schoolName;
+  const authState = props.authState;
   const [potion, setPotion] = React.useState('')
   const [ing1, setIng1] = React.useState('Gold Dust')
   const [ing2, setIng2] = React.useState('Jellyfish Venom')
@@ -32,8 +34,10 @@ export function Potions(props) {
       console.log("Correct");
       alert("Correct! Your score is " + score + ".");
       console.log(score);
-      let newScore = { name: userName, school: schoolName, score: score};
-      savescore(newScore);
+      if (authState == AuthState.Authenticated) {
+        let newScore = { name: userName, school: schoolName, score: score};
+        savescore(newScore);
+      }
     } else {
       console.log("Incorrect")
       alert("Incorrect - please try again.")
