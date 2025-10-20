@@ -1,6 +1,7 @@
 import React from 'react';
 import "./astronomy.css"
 import { NavLink } from 'react-router-dom'
+import { AuthState } from '../login/authState';
 
 export function Astronomy(props) {
 
@@ -18,9 +19,10 @@ export function Astronomy(props) {
         false, false, false, false, false, false, false, false
     ]);
 
-    const updateValue = (index, newValue) => {
-        const updatedArray = disabled.map((item, i) => (i === index ? newValue : item));
-        setDisabled(updatedArray);
+    const updateValue = (index1,index2, newValue) => {
+        const firstArray = disabled.map((item, i) => (i === index1 ? newValue : item));
+        const secondArray = firstArray.map((item,i) => (i === index2 ? newValue : item));
+        setDisabled(secondArray);
     };
 
     {/* Steps: 
@@ -35,8 +37,7 @@ export function Astronomy(props) {
         }
         return shuffled;
     };
-
-    
+   
     React.useEffect(() => {
         setNumbers(shuffleArray(numbers));
     },[])
@@ -60,19 +61,15 @@ export function Astronomy(props) {
         '<p  class="card-title">Orion</p>',
         '<p  class="card-title">Pegasus</p>'];
 
-    // let disabled = [false,false,false,false,false,false,false,false,
-    //                 false, false,false,false,false,false,false,false
-    // ]
 
     function reveal(i) {
         if (!disabled[numbers[i - 1]]) {
-            console.log(!disabled[numbers[i - 1]]);
-            console.log(disabled);
             let element = document.getElementById(i);
             element.innerHTML = cards[numbers[i - 1]];
             setPrev(current);
             setCurrent(i);
             setFlippedTwo(!flippedTwo);
+            console.log(disabled);
         }
     };
 
@@ -84,11 +81,7 @@ export function Astronomy(props) {
             // Flip everything back
             if (answers[numbers[current - 1]] == answers[numbers[prev - 1]]) {
                 console.log("match", current, prev, answers[numbers[current - 1]], answers[numbers[prev - 1]]);
-                updateValue(current - 1, true);
-                updateValue(prev - 1, true);
-                // disabled[numbers[current-1]] = true;
-                // disabled[numbers[prev-1]] = true;
-                console.log(disabled[numbers[prev - 1]], disabled[numbers[current - 1]])
+                updateValue(numbers[current - 1], numbers[prev-1], true);
                 setCount(count + 1);
             };
             setTimeout(() => {
@@ -167,28 +160,28 @@ export function Astronomy(props) {
 
             <div class="max_width_800 row m-3 h-100 row-cols-1 row-cols-md-4 g-16 d-flex justify-content-center align-items-center">
                 <div class="col"  >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[0]]? "disabled" : ""}`}>
                         <div id="1" disabled={disabled[numbers[0]]} onClick={() => reveal(1)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[1]]? "disabled" : ""}`}>
                         <div id="2" disabled={disabled[numbers[1]]} onClick={() => reveal(2)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class = {`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[2]]? "disabled" : ""}`}>
                         <div id="3" disabled={disabled[numbers[2]]} onClick={() => reveal(3)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[3]]? "disabled" : ""}`}>
                         <div id='4' disabled={disabled[numbers[3]]} onClick={() => reveal(4)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
@@ -196,28 +189,28 @@ export function Astronomy(props) {
                 </div>
 
                 <div class="col"  >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[4]]? "disabled" : ""}`}>
                         <div id='5' disabled={disabled[numbers[4]]} onClick={() => reveal(5)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[5]]? "disabled" : ""}`}>
                         <div id='6' disabled={disabled[numbers[5]]} onClick={() => reveal(6)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[6]]? "disabled" : ""}`}>
                         <div id='7' disabled={disabled[numbers[6]]} onClick={() => reveal(7)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[7]]? "disabled" : ""}`}>
                         <div id='8' disabled={disabled[numbers[7]]} onClick={() => reveal(8)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
@@ -225,28 +218,28 @@ export function Astronomy(props) {
                 </div>
 
                 <div class="col"  >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[8]]? "disabled" : ""}`}>
                         <div id='9' disabled={disabled[numbers[8]]} onClick={() => reveal(9)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[9]]? "disabled" : ""}`}>
                         <div id='10' disabled={disabled[numbers[9]]} onClick={() => reveal(10)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[10]]? "disabled" : ""}`}>
                         <div id='11' disabled={disabled[numbers[10]]} onClick={() => reveal(11)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[11]]? "disabled" : ""}`}>
                         <div id='12' disabled={disabled[numbers[11]]} onClick={() => reveal(12)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
@@ -254,28 +247,28 @@ export function Astronomy(props) {
                 </div>
 
                 <div class="col"  >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[12]]? "disabled" : ""}`}>
                         <div id='13' disabled={disabled[numbers[12]]} onClick={() => reveal(13)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[13]]? "disabled" : ""}`}>
                         <div id='14' disabled={disabled[numbers[13]]} onClick={() => reveal(14)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[14]]? "disabled" : ""}`}>
                         <div id='15' disabled={disabled[numbers[14]]} onClick={() => reveal(15)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>
                     </div>
                 </div>
                 <div class="col" >
-                    <div class="card card_in_astronomy_game btn btn-secondary">
+                    <div class={`card card_in_astronomy_game btn btn-secondary ${disabled[numbers[15]]? "disabled" : ""}`}>
                         <div id='16' disabled={disabled[numbers[15]]} onClick={() => reveal(16)} class="card-body">
                             <p class="card-title black-font">Flip</p>
                         </div>

@@ -7,6 +7,13 @@ export function CreateAccount(props) {
     const [userName, setUserName] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [schoolName, setSchoolName] = React.useState('');
+    const [suggestedName, setSuggestedName] = React.useState('');
+    const [suggestedSchool, setSuggestedSchool] = React.useState('');
+
+    React.useEffect(() => {
+        setSuggestedName('Armingan the Artist');
+        setSuggestedSchool('The Lightning Academy');
+    }, []);
 
     async function createUser() {
         localStorage.setItem('userName', userName);
@@ -37,7 +44,7 @@ export function CreateAccount(props) {
                     <input class="form-control" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                 </div>
                 <div class="prompt">
-                    <p>Need some inspiration? Visit this 3rd party service call to generate cool names.</p>
+                    <p>Need some inspiration? What about {suggestedName} from {suggestedSchool}</p>
                 </div>
                 <button type="submit" class="btn btn-primary" 
                 onClick={() => createUser()} 

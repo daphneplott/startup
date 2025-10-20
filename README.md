@@ -107,8 +107,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - The Login and Create Account pages will let you log in. It will save your data using local storage. The potions and astronomy games are totally playable, and will save your high scores using local storage. The highscores will not save unless you are authenticated. In astronomy, the buttons will correctly shuffle, match with each other, flip, unflip, and become unclickable. The game will announce your score correctly. In the potions, it will correctly validate the ingredients and alert you to whether you are correct or not. (It's really fun, you should just play the games to see how well they work! :)  The API call is simulated using a fixed value, and a useEffect function is in place to render it. The websocket is mocked by communicating the highscores data on the different pages using local storage.
+- [x] **Hooks** - I used useState and useEffect hooks. The useState hooks outline almost all the variables I use, and all the variables that every get changed. The useEffect hooks are used in my games to call certain functions based on when different state variables are updated. 
 
 ## 🚀 Service deliverable
 
