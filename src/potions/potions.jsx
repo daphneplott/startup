@@ -45,7 +45,7 @@ export function Potions(props) {
     }
   }
 
-  async function savescore(newScore) {
+  async function savescore(score) {
     //Something in here that will call the database to get the schoolname
     const newScore = { name: userName, school: schoolName, score: score};
     await fetch('api/potionsscore', {

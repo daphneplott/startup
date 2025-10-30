@@ -97,13 +97,12 @@ export function Astronomy(props) {
         if (count == 8) {
             alert("You matched them all! You scored " + score + " points.")
             if (authState == AuthState.Authenticated) {
-                let newScore = { name: userName, school: schoolName, score: score };
-                savescore(newScore);
+                savescore(score);
             }
         }
     }, [count]);
 
-    async function savescore(newScore) {
+    async function savescore(score) {
     //Something in here that will call the database to get the schoolname
     const newScore = { name: userName, school: schoolName, score: score};
     await fetch('api/astronomyscore', {
