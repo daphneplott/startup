@@ -16,6 +16,19 @@ export default function App() {
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
     const [schoolName, setSchoolName] = React.useState('Hogwarts')
+
+    function logout() {
+        fetch('/api/auth/logout', {
+            method: 'delete',
+        })
+        .catch(() => {})
+        .finally(() => {
+            localStorage.removeItem('userName');
+            setAuthState(AuthState.Unauthenticated);
+            setUserName('');
+            localStorage.setItem("userName",'')
+        })
+    }
     
     return (
         <BrowserRouter>
@@ -39,9 +52,7 @@ export default function App() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="" 
                                 onClick={() => {
-                                    setAuthState(AuthState.Unauthenticated);
-                                    setUserName('');
-                                    localStorage.setItem("userName",'')
+                                    logout();
                                 }} >
                                     Logout
                                 </NavLink>

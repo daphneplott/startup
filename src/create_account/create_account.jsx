@@ -16,10 +16,22 @@ export function CreateAccount(props) {
     }, []);
 
     async function createUser() {
-        localStorage.setItem('userName', userName);
-        localStorage.setItem(userName, schoolName);
-        localStorage.setItem('schoolName',schoolName);
-        props.onAuthChange(userName, AuthState.Authenticated,schoolName);
+        const response = await fetch(`/api/auth/create`, {
+            method: 'post',
+            body: JSON.stringify({ username: userName, schoolName: schoolName, password: password }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+        if (response?.status === 200) {
+            localStorage.setItem('userName', userName);
+            localStorage.setItem(userName, schoolName);
+            localStorage.setItem('schoolName', schoolName);
+            props.onAuthChange(userName, AuthState.Authenticated, schoolName);
+        } else {
+            const body = await response.json();
+            setDisplayError('Error: ${body.msg}')
+        }
     }
 
     return (
@@ -46,9 +58,9 @@ export function CreateAccount(props) {
                 <div class="prompt">
                     <p>Need some inspiration? What about {suggestedName} from {suggestedSchool}</p>
                 </div>
-                <button type="submit" class="btn btn-primary" 
-                onClick={() => createUser()} 
-                disabled={!userName || !password || !schoolName}>
+                <button type="submit" class="btn btn-primary"
+                    onClick={() => createUser()}
+                    disabled={!userName || !password || !schoolName}>
                     <NavLink className="nav-link" to="/">
                         Create Account
                     </NavLink></button>
