@@ -1,30 +1,6 @@
 import React from 'react';
 import "./highscore_astronomy.css"
 
-// export function HighscoreAstronomy() {
-//   return (
-
-//     <main className = "body_astronomy container-fluid">
-//         <box>
-//             <h1>Astronomy High Scores</h1>
-//             <ol  class = "highscores-box-astronomy">
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//             </ol>
-//         </box>
-//     </main>
-
-//   );
-// }
-
 
 export function HighscoreAstronomy() {
   const [scores, setScores] = React.useState([]);
@@ -32,11 +8,12 @@ export function HighscoreAstronomy() {
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
   React.useEffect(() => {
-    const scoresText = localStorage.getItem('scores_astronomy');
-    if (scoresText) {
-      setScores(JSON.parse(scoresText));
-    }
-  }, []);
+      fetch('/api/astronomyscores')
+        .then((response) => response.json())
+        .then((scores)=>{
+          setScores(scores);
+        })
+    }, []);
 
   // Demonstrates rendering an array with React
   const scoreRows = [];

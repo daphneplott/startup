@@ -103,30 +103,15 @@ export function Astronomy(props) {
         }
     }, [count]);
 
-    function savescore(newScore) {
-        let scores = [];
-        const scoresText = localStorage.getItem('scores_astronomy');
-        if (scoresText) {
-            scores = JSON.parse(scoresText);
-        }
-
-        let found = false;
-        for (const [i, prevScore] of scores.entries()) {
-            if (newScore.score > prevScore.score) {
-                scores.splice(i, 0, newScore);
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            scores.push(newScore);
-        }
-        if (scores.length > 10) {
-            scores.length = 10;
-        }
-
-        localStorage.setItem('scores_astronomy', JSON.stringify(scores));
-    }
+    async function savescore(newScore) {
+    //Something in here that will call the database to get the schoolname
+    const newScore = { name: userName, school: schoolName, score: score};
+    await fetch('api/astronomyscore', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON.stringify(newScore),
+    });
+  }
 
 
     return (

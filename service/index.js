@@ -67,19 +67,23 @@ const verifyAuth = async (req, res, next) => {
 // HEY YOU!!! YES, YOU!!! THESE NEXT FEW THINGS MIGHT BREAK... I DON'T KNOW
 
 // GetScores
-apiRouter.get('/scores', verifyAuth, (_req, res) => {
-  res.send(scores);
+apiRouter.get('/astronomyscores', verifyAuth, (_req, res) => {
+  res.send(scores_astronomy);
+});
+
+apiRouter.get('/potionsscores', verifyAuth, (_req, res) => {
+  res.send(scores_potions);
 });
 
 // SubmitScore
 apiRouter.post('/astronomyscore', verifyAuth, (req, res) => {
   scores = updateScoresAstronomy(req.body);
-  res.send(scores);
+  res.send(scores_astronomy);
 });
 
 apiRouter.post('/potionsscore', verifyAuth, (req, res) => {
   scores = updateScoresPotions(req.body);
-  res.send(scores);
+  res.send(scores_potions);
 });
 
 // Default error handler

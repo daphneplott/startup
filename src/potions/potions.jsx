@@ -35,8 +35,7 @@ export function Potions(props) {
       alert("Correct! Your score is " + score + ".");
       console.log(score);
       if (authState == AuthState.Authenticated) {
-        let newScore = { name: userName, school: schoolName, score: score};
-        savescore(newScore);
+        savescore(score);
       }
     } else {
       console.log("Incorrect")
@@ -46,29 +45,14 @@ export function Potions(props) {
     }
   }
 
-  function savescore(newScore) {
-    let scores = [];
-    const scoresText = localStorage.getItem('scores_potions');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (newScore.score > prevScore.score) {
-        scores.splice(i,0,newScore);
-        found = true;
-        break;
-      }
-    }
-    if (!found) {
-      scores.push(newScore);
-    }
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
-
-    localStorage.setItem('scores_potions',JSON.stringify(scores));
+  async function savescore(newScore) {
+    //Something in here that will call the database to get the schoolname
+    const newScore = { name: userName, school: schoolName, score: score};
+    await fetch('api/potionsscore', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json'},
+      body: JSON.stringify(newScore),
+    });
   }
 
   return (

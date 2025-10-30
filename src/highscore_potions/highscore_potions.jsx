@@ -29,10 +29,11 @@ export function HighscorePotions() {
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
   React.useEffect(() => {
-    const scoresText = localStorage.getItem('scores_potions');
-    if (scoresText) {
-      setScores(JSON.parse(scoresText));
-    }
+    fetch('/api/potionsscores')
+      .then((response) => response.json())
+      .then((scores)=>{
+        setScores(scores);
+      })
   }, []);
 
   // Demonstrates rendering an array with React
