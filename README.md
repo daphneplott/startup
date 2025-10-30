@@ -3,7 +3,7 @@
 
 [My Notes](notes.md)
 
-This application is a simple game that simulates classes in magic school. It primarily runs on a (few) small minigames with comparative scores.
+This application is a simple game that simulates classes in magic school. It primarily runs on a (few) small miniga mes with comparative scores.
 
 
 > [!NOTE]
