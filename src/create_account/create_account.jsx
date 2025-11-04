@@ -29,6 +29,7 @@ export function CreateAccount(props) {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         });
+        console.log(response)
         if (response?.status === 200) {
             localStorage.setItem('userName', userName);
             localStorage.setItem(userName, schoolName);

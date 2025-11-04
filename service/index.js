@@ -20,13 +20,18 @@ app.use('/api',apiRouter);
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
+  console.log("api/auth/create backend")
   if (await findUser('username', req.body.uersname)) {
+    console.log("if ...")
     res.status(409).send({ msg: 'Existing user' });
   } else {
-    const user = await createUser(req.body.username, req.body.school, req.body.password);
-
+    console.log("else...")
+    const user = await createUser(req.body.username, req.body.schoolName, req.body.password);
+    console.log("out of createuser...")
     setAuthCookie(res, user.token);
-    res.send({ username: user.uersname });
+    console.log("having set cookies..")
+    res.send({ username: user.username });
+    console.log()
   }
 });
 
@@ -142,6 +147,7 @@ function updateScoresPotions(newScore) {
 }
 
 async function createUser(username, school, password) {
+  console.log("In create user")
   const passwordHash = await bcrypt.hash(password, 10);
 
   const user = {
@@ -151,23 +157,28 @@ async function createUser(username, school, password) {
     token: uuid.v4(),
   };
   users.push(user);
+  console.log(users)
 
   return user;
 }
 
 async function findUser(field, value) {
+  console.log("in FindUser...")
   if (!value) return null;
-
+  console.log("finduser else ...")
   return users.find((u) => u[field] === value);
 }
 
 // setAuthCookie in the HTTP response
 function setAuthCookie(res, authToken) {
+  console.log("in setAuthCookie")
+  console.log(res.cookie)
   res.cookie(authCookieName, authToken, {
     secure: true,
     httpOnly: true,
     sameSite: 'strict',
   });
+  console.log("done with func res.cookie")
 }
 
 app.listen(port, () => {
