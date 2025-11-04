@@ -119,7 +119,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Calls to third party endpoints** - The create account page includes an API call to a Harry Potter API to get a suggested username. This username displays as the default text in the username box.
 - [x] **Backend service endpoints** - The backend is listening for the /api calls to run certain functions when those pages are fetched.
 - [x] **Frontend calls service endpoints** - The login, create account, games, and highscore pages call the service to help with login, and making and retrieving new highscores.
-- [x] **Supports registration, login, logout, and restricted endpoint** - The login, logout, create account are all supported. The only restricted endpoint is that it won't save a score if you aren't logged in.
+- [x] **Supports registration, login, logout, and restricted endpoint** - The login, logout, create account are all supported. The only restricted endpoint is that it won't save a score if you aren't logged in. The navbar will say login vs logout depending on if the player is logged in or out, and the logout navbar link is just a button that will log them out.
 
 
 ## 🚀 DB deliverable
