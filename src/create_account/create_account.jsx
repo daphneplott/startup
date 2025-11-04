@@ -36,7 +36,6 @@ export function CreateAccount(props) {
             props.onAuthChange(userName, AuthState.Authenticated, schoolName);
         } else {
             const body = await response.json();
-            setDisplayError('Error: ${body.msg}')
         }
     }
 
@@ -47,7 +46,7 @@ export function CreateAccount(props) {
                     <span class="prompt">By what name are you called, new student?</span>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" onChange={(e) => setUserName(e.target.value)} placeholder="Armingan the Artist" />
+                    <input type="text" class="form-control" onChange={(e) => setUserName(e.target.value)} placeholder={suggestedName} />
                 </div>
                 <div class="input-group mb-3">
                     <span class="prompt">What is the magical school you attend?</span>
@@ -60,9 +59,6 @@ export function CreateAccount(props) {
                 </div>
                 <div class="input-group mb-3">
                     <input class="form-control" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-                </div>
-                <div class="prompt">
-                    <p>Need some inspiration? What about {suggestedName} from {suggestedSchool}</p>
                 </div>
                 <button type="submit" class="btn btn-primary"
                     onClick={() => createUser()}
