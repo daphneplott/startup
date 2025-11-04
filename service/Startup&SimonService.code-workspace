@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "simon-service",
+			"path": "../../simon-service"
+		}
+	],
+	"settings": {}
+}

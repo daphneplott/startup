@@ -114,12 +114,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I used express and node to complete the backend featured in the service folder.
+- [x] **Static middleware for frontend** - Functions were created in index.js in the service folder to help with login and scores.
+- [x] **Calls to third party endpoints** - The create account page includes an API call to a Harry Potter API to get a suggested username. This username displays as the default text in the username box.
+- [x] **Backend service endpoints** - The backend is listening for the /api calls to run certain functions when those pages are fetched.
+- [x] **Frontend calls service endpoints** - The login, create account, games, and highscore pages call the service to help with login, and making and retrieving new highscores.
+- [x] **Supports registration, login, logout, and restricted endpoint** - The login, logout, create account are all supported. The only restricted endpoint is that it won't save a score if you aren't logged in.
 
 
 ## 🚀 DB deliverable

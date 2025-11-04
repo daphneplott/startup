@@ -15,7 +15,6 @@ export function Potions(props) {
   const [score, setScore] = React.useState(1000)
 
   React.useEffect(() => {
-
     const Potion1 = { name: "Elixir of Metamorphosis", attr1: "Gold color", ing1:"Gold Dust", attr2: "transformative power", ing3: "Snake Skin", attr3: "extra strength", ing2: "Lotus"}
     const Potion2 = { name: "Unshifting Serum", attr1: "Green color",ing1:"Mint Leaves", attr2: "transformative power", ing3: "Snake Skin", attr3: "restorative", ing2: "Black Sand" }
     const Potion3 = { name: "Venus's Whisper", attr1: "Red color", ing1:"Poppy Seed", attr2: "power of love", ing3: "Mistletoe", attr3: "extra strength", ing2: "Lotus" }

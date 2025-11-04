@@ -11,7 +11,13 @@ export function CreateAccount(props) {
     const [suggestedSchool, setSuggestedSchool] = React.useState('');
 
     React.useEffect(() => {
-        setSuggestedName('Armingan the Artist');
+        fetch('https://potterapi-fedeperin.vercel.app/en/characters/random')
+            .then((response) => response.json())
+            .then((data) => {
+                setSuggestedName(data.fullName)
+            })
+            .catch(
+            setSuggestedName('Armingan the Artist'));
         setSuggestedSchool('The Lightning Academy');
     }, []);
 
