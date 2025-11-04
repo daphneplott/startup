@@ -114,7 +114,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Node.js/Express HTTP service** - I used express and node to complete the backend featured in the service folder.
+- [x] **Node.js/Express HTTP service** - I used express and node to complete the backend featured in the service folder, most of which is in index.js.
 - [x] **Static middleware for frontend** - Functions were created in index.js in the service folder to help with login and scores.
 - [x] **Calls to third party endpoints** - The create account page includes an API call to a Harry Potter API to get a suggested username. This username displays as the default text in the username box.
 - [x] **Backend service endpoints** - The backend is listening for the /api calls to run certain functions when those pages are fetched.
