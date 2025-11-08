@@ -24,7 +24,7 @@ export function Login(props) {
       props.onAuthChange(userName,AuthState.Authenticated,schoolName)
     } else {
       const body = await response.json();
-      setDisplayError('Error: ${body.msg}')
+      alert("Incorrect username or password")
     }
   }
 

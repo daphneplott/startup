@@ -8,7 +8,6 @@ export function CreateAccount(props) {
     const [password, setPassword] = React.useState('');
     const [schoolName, setSchoolName] = React.useState('');
     const [suggestedName, setSuggestedName] = React.useState('');
-    const [suggestedSchool, setSuggestedSchool] = React.useState('');
 
     React.useEffect(() => {
         fetch('https://potterapi-fedeperin.vercel.app/en/characters/random')
@@ -18,7 +17,6 @@ export function CreateAccount(props) {
             })
             .catch(
             setSuggestedName('Armingan the Artist'));
-        setSuggestedSchool('The Lightning Academy');
     }, []);
 
     async function createUser() {

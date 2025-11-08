@@ -19,11 +19,11 @@ const scoreAstronomyCollection = db.collection('score_astronomy');
   }
 })();
 
-function getUser(username) {
+async function getUser(username) {
   return userCollection.findOne({ username : username });
 }
 
-function getUserByToken(token) {
+async function getUserByToken(token) {
   return userCollection.findOne({ token: token });
 }
 
@@ -43,7 +43,7 @@ async function addScoreAstronomy(score) {
     return scoreAstronomyCollection.insertOne(score);
 }
 
-function getHighScoresPotions() {
+async function getHighScoresPotions() {
   const query = { score: { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },
@@ -53,7 +53,7 @@ function getHighScoresPotions() {
   return cursor.toArray();
 }
 
-function getHighScoresAstronomy() {
+async function getHighScoresAstronomy() {
   const query = { score: { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },
