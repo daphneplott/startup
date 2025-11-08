@@ -1,5 +1,8 @@
 Hello, this is a test commit!
 
+Reminders for the DataBase deliverable:
+- Don't forget to add an alert if the login doesn't work.
+
 # CS 260 Notes
 
 ## Push/Pull/Commit
