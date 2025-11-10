@@ -84,12 +84,12 @@ apiRouter.get('/potionsscores', verifyAuth, (_req, res) => {
 
 // SubmitScore
 apiRouter.post('/astronomyscore', verifyAuth, (req, res) => {
-  scores = updateScoresAstronomy(req.body);
+  scores_astronomy = updateScoresAstronomy(req.body);
   res.send(scores_astronomy);
 });
 
 apiRouter.post('/potionsscore', verifyAuth, (req, res) => {
-  scores = updateScoresPotions(req.body);
+  scores_potions = updateScoresPotions(req.body);
   res.send(scores_potions);
 });
 
@@ -106,12 +106,12 @@ app.use((_req, res) => {
 
 
 // updateScores considers a new score for inclusion in the high scores.
-function updateScoresAstronomy(newScore) {
+async function updateScoresAstronomy(newScore) {
   await DB.addScoreAstronomy(newScore);
   return DB.getHighScoresAstronomy();
   }
 
-function updateScoresPotions(newScore) {
+async function updateScoresPotions(newScore) {
   await DB.addScorePotions(newScore);
   return DB.getHighScoresPotions();
 
