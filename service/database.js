@@ -36,6 +36,7 @@ async function updateUser(user) {
 }
 
 async function addScorePotions(score) {
+  console.log("AddScorePotions ...")
   return scorePotionsCollection.insertOne(score);
 }
 
@@ -44,6 +45,7 @@ async function addScoreAstronomy(score) {
 }
 
 async function getHighScoresPotions() {
+  console.log("Get scores potions")
   const query = { score: { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },

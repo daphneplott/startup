@@ -33,6 +33,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     console.log("out of createuser...")
     setAuthCookie(res, user.token);
     console.log("having set cookies..")
+    console.log(authCookieName)
     res.send({ username: user.username });
     console.log()
   }
@@ -45,6 +46,9 @@ apiRouter.post('/auth/login', async (req, res) => {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
       setAuthCookie(res, user.token);
+      console.log("in login...")
+      console.log("having set cookies...")
+      console.log(authCookieName)
       res.send({ username: user.username });
       return;
     }
@@ -65,6 +69,8 @@ apiRouter.delete('/auth/logout', async (req, res) => {
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
   const user = await findUser('token', req.cookies[authCookieName]);
+  console.log("verifyAuth")
+  console.log(user)
   if (user) {
     next();
   } else {
@@ -133,6 +139,9 @@ async function createUser(username, school, password) {
 }
 
 async function findUser(field, value) {
+  console.log("findUser")
+  console.log(value)
+  console.log(!value)
   if (!value) return null;
   if (field === 'token') {
     return DB.getUserByToken(value);
