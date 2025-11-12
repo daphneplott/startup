@@ -126,8 +126,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - It stores the highscore data for the astronomy and potions games in mongo, and then retrieves them to put on the highscore pages
+- [x] **Stores credentials in MongoDB** - It stores credentials in mongo to validate login.
 
 ## 🚀 WebSocket deliverable
 

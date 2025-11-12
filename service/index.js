@@ -83,14 +83,17 @@ const verifyAuth = async (req, res, next) => {
 
 
 // GetScores
-apiRouter.get('/astronomyscores', verifyAuth, (_req, res) => {
-  res.send(scores_astronomy);
+apiRouter.get('/astronomyscores', verifyAuth, async (_req, res) => {
+  const scores = await DB.getHighScoresAstronomy()
+  res.send(scores);
 });
 
-apiRouter.get('/potionsscores', verifyAuth, (_req, res) => {
+apiRouter.get('/potionsscores', verifyAuth, async (_req, res) => {
   console.log('get')
-  console.log(scores_potions)
-  res.send(scores_potions);
+  const scores = await DB.getHighScoresPotions()
+  console.log("back to get")
+  console.log(scores)
+  res.send(scores);
 });
 
 // SubmitScore

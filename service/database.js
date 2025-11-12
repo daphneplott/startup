@@ -20,19 +20,11 @@ const scoreAstronomyCollection = db.collection('score_astronomy');
 })();
 
 async function getUser(username) {
-  console.log("in getuser")
-  console.log()
   return await userCollection.findOne({ 'username' : username });
 }
 
 async function getUserByToken(token) {
-  console.log("in get user by token")
-  console.log(token)
-  console.log()
-  let mything = await userCollection.findOne({ 'token': token });
-  console.log(mything)
-  console.log("leaving in get user by token")
-  return mything 
+  return await userCollection.findOne({ 'token': token });
   
 }
 
@@ -54,14 +46,13 @@ async function addScoreAstronomy(score) {
 }
 
 async function getHighScoresPotions() {
-  console.log("Get scores potions")
+  console.log("Get High scores potions")
   const query = { 'score': { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },
     limit: 10,
   };
   const cursor = await scorePotionsCollection.find(query, options);
-  console.log(cursor.toArray())
   return cursor.toArray();
 }
 

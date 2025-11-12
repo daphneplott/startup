@@ -7,13 +7,21 @@ export function HighscoreAstronomy() {
 
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
-  React.useEffect(() => {
-      fetch('/api/astronomyscores')
-        .then((response) => response.json())
-        .then((scores)=>{
-          setScores(scores);
-        })
-    }, []);
+    React.useEffect(() => {
+        fetch('/api/astronomyscores')
+          .then(console.log("in fetch then"))
+          .then((res) => {
+            if (res.ok) {
+              return res.json();
+            }
+          })
+          .then(data => {
+            console.log("data:");
+            console.log(data)
+            setScores(data); 
+          })
+          .catch(console.log("in fetch catch"))
+      }, []);
 
   // Demonstrates rendering an array with React
   const scoreRows = [];
