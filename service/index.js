@@ -11,7 +11,6 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser())
 
-let users = []
 let scores_astronomy = []
 let scores_potions = []
 let authCookieName = 'token';
@@ -31,22 +30,26 @@ apiRouter.post('/auth/create', async (req, res) => {
     console.log("else...")
     const user = await createUser(req.body.username, req.body.schoolName, req.body.password);
     console.log("out of createuser...")
+    console.log(user.token)
     setAuthCookie(res, user.token);
     console.log("having set cookies..")
     console.log(authCookieName)
     res.send({ username: user.username });
-    console.log()
   }
 });
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
   const user = await findUser('username', req.body.username);
+  console.log(user)
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      user.token = uuid.v4();
-      setAuthCookie(res, user.token);
+      
       console.log("in login...")
+      console.log(user)
+      console.log(user.token)
+      setAuthCookie(res, user.token);
+      
       console.log("having set cookies...")
       console.log(authCookieName)
       res.send({ username: user.username });
@@ -85,6 +88,8 @@ apiRouter.get('/astronomyscores', verifyAuth, (_req, res) => {
 });
 
 apiRouter.get('/potionsscores', verifyAuth, (_req, res) => {
+  console.log('get')
+  console.log(scores_potions)
   res.send(scores_potions);
 });
 
@@ -95,7 +100,9 @@ apiRouter.post('/astronomyscore', verifyAuth, (req, res) => {
 });
 
 apiRouter.post('/potionsscore', verifyAuth, (req, res) => {
+  console.log('post')
   scores_potions = updateScoresPotions(req.body);
+  console.log(scores_potions)
   res.send(scores_potions);
 });
 
@@ -159,11 +166,15 @@ async function findUser(field, value) {
 
 // setAuthCookie in the HTTP response
 function setAuthCookie(res, authToken) {
+  console.log('in set auth cookiess...')
+  console.log(authToken)
   res.cookie(authCookieName, authToken, {
     secure: true,
     httpOnly: true,
     sameSite: 'strict',
   });
+  console.log(res.cookie[authCookieName])
+  console.log('leaving set auth cookies...')
 }
 
 const httpService = app.listen(port, () => {

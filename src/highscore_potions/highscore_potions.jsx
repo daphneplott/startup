@@ -1,43 +1,27 @@
 import React from 'react';
 import './highscore_potions.css';
 
-// export function HighscorePotions() {
-//   return (
-//     <main className = "body_potions container-fluid">
-//         <box>
-//             <h1>Potions High Scores</h1>
-//             <ol  class = "highscores-box-potions">
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//                 <li>Player Name, School Name, and Score, retrieved from Database</li>
-//             </ol>
-//         </box>
-//     </main>
-//   );
-// }
 
 export function HighscorePotions() {
   const [scores, setScores] = React.useState([]);
+  const scoreRows = [];
 
   // Demonstrates calling a service asynchronously so that
   // React can properly update state objects with the results.
   React.useEffect(() => {
     fetch('/api/potionsscores')
+      .then((response) => console.log(response))
       .then((response) => response.json())
-      .then((scores)=>{
-        setScores(scores);
+      .then((scoress)=>{
+        setScores(scoress);
+        console.log("having just fetched api scores")
+        console.log(scoress)
+        console.log(scores)
       })
   }, []);
 
   // Demonstrates rendering an array with React
-  const scoreRows = [];
+  
   if (scores.length) {
     for (const [i, score] of scores.entries()) {
       scoreRows.push(
@@ -55,6 +39,8 @@ export function HighscorePotions() {
         <td colSpan='4'>Be the first to score</td>
       </tr>
     );
+    console.log("these be the rows")
+    console.log(scoreRows)
   }
 
   return (

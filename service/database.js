@@ -61,6 +61,7 @@ async function getHighScoresPotions() {
     limit: 10,
   };
   const cursor = await scorePotionsCollection.find(query, options);
+  console.log(cursor.toArray())
   return cursor.toArray();
 }
 
