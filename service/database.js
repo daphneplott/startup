@@ -20,11 +20,20 @@ const scoreAstronomyCollection = db.collection('score_astronomy');
 })();
 
 async function getUser(username) {
-  return userCollection.findOne({ username : username });
+  console.log("in getuser")
+  console.log()
+  return await userCollection.findOne({ 'username' : username });
 }
 
 async function getUserByToken(token) {
-  return userCollection.findOne({ token: token });
+  console.log("in get user by token")
+  console.log(token)
+  console.log()
+  let mything = await userCollection.findOne({ 'token': token });
+  console.log(mything)
+  console.log("leaving in get user by token")
+  return mything 
+  
 }
 
 async function addUser(user) {
@@ -32,36 +41,36 @@ async function addUser(user) {
 }
 
 async function updateUser(user) {
-  await userCollection.updateOne({ username: user.username }, { $set: user });
+  await userCollection.updateOne({ 'username': user.username }, { $set: user });
 }
 
 async function addScorePotions(score) {
   console.log("AddScorePotions ...")
-  return scorePotionsCollection.insertOne(score);
+  return await scorePotionsCollection.insertOne(score);
 }
 
 async function addScoreAstronomy(score) {
-    return scoreAstronomyCollection.insertOne(score);
+    return await scoreAstronomyCollection.insertOne(score);
 }
 
 async function getHighScoresPotions() {
   console.log("Get scores potions")
-  const query = { score: { $gt: 0, $lt: 1100 } };
+  const query = { 'score': { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },
     limit: 10,
   };
-  const cursor = scorePotionsCollection.find(query, options);
+  const cursor = await scorePotionsCollection.find(query, options);
   return cursor.toArray();
 }
 
 async function getHighScoresAstronomy() {
-  const query = { score: { $gt: 0, $lt: 1100 } };
+  const query = { 'score': { $gt: 0, $lt: 1100 } };
   const options = {
     sort: { score: -1 },
     limit: 10,
   };
-  const cursor = scoreAstronomyCollection.find(query, options);
+  const cursor = await scoreAstronomyCollection.find(query, options);
   return cursor.toArray();
 }
 

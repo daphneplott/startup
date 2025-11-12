@@ -114,12 +114,12 @@ app.use((_req, res) => {
 // updateScores considers a new score for inclusion in the high scores.
 async function updateScoresAstronomy(newScore) {
   await DB.addScoreAstronomy(newScore);
-  return DB.getHighScoresAstronomy();
+  return await DB.getHighScoresAstronomy();
   }
 
 async function updateScoresPotions(newScore) {
   await DB.addScorePotions(newScore);
-  return DB.getHighScoresPotions();
+  return await DB.getHighScoresPotions();
 
 }
 
@@ -142,11 +142,19 @@ async function findUser(field, value) {
   console.log("findUser")
   console.log(value)
   console.log(!value)
-  if (!value) return null;
-  if (field === 'token') {
-    return DB.getUserByToken(value);
+  console.log()
+  if (!value) {
+    console.log("finduser - !value if statement")
+    return null;
   }
-  return DB.getUser(value);
+  if (field === 'token') {
+    let mything = await DB.getUserByToken(value);
+    console.log(mything)
+    return mything
+  }
+  let mything = await DB.getUser(value);
+  console.log(mything)
+  return mything
 }
 
 // setAuthCookie in the HTTP response
