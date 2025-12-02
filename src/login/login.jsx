@@ -10,33 +10,7 @@ export function Login(props) {
   const [schoolName,setSchoolName] = React.useState('Hogwarts')
   const [messages, setMessages] = React.useState([])
 
-  webSocket = new GameEventNotifier();
-
-  const chatEls = messages.map((message, index) => (
-    <div key = {index}>
-      <span className = "chatmessage">{message.name} just enrolled at {message.school}</span>
-    </div>
-  ))
   
-  async function loginUser() {
-    const response = await fetch(`/api/auth/login`, {
-      method: 'post',
-      body: JSON.stringify( {username: userName, password: password}),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    if (response?.status === 200) {
-      localStorage.setItem('userName',userName);
-      setSchoolName(localStorage.getItem(userName));
-      localStorage.setItem('schoolName',schoolName)
-      props.onAuthChange(userName,AuthState.Authenticated,schoolName)
-      webSocket.broadcastEvent(userName,schoolName)
-    } else {
-      const body = await response.json();
-      alert("Incorrect username or password")
-    }
-  }
 
 
   class GameEventNotifier {
@@ -50,9 +24,9 @@ export function Login(props) {
       // this.socket.onopen = (event) => {
       //   this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'connected' }));
       // };
-      this.socket.onclose = (event) => {
-        this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'disconnected' }));
-      };
+      // this.socket.onclose = (event) => {
+      //   this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'disconnected' }));
+      // };
       this.socket.onmessage = async (msg) => {
         try {
           const event = JSON.parse(await msg.data.text());
@@ -81,7 +55,35 @@ export function Login(props) {
       };
     }
 
-const GameNotifier = new GameEventNotifier();
+  // const GameNotifier = new GameEventNotifier();
+
+  const webSocket = new GameEventNotifier();
+
+  const chatEls = messages.map((message, index) => (
+    <div key = {index}>
+      <span className = "chatmessage">{message.name} just enrolled at {message.school}</span>
+    </div>
+  ))
+  
+  async function loginUser() {
+    const response = await fetch(`/api/auth/login`, {
+      method: 'post',
+      body: JSON.stringify( {username: userName, password: password}),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response?.status === 200) {
+      localStorage.setItem('userName',userName);
+      setSchoolName(localStorage.getItem(userName));
+      localStorage.setItem('schoolName',schoolName)
+      props.onAuthChange(userName,AuthState.Authenticated,schoolName)
+      webSocket.broadcastEvent(userName,schoolName)
+    } else {
+      const body = await response.json();
+      alert("Incorrect username or password")
+    }
+  }
 
   return (
     <main className="body container-fluid text-center">
