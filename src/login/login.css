@@ -2,3 +2,8 @@ h1 {
     color: aquamarine;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.chatmessage {
+    color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -8,6 +8,15 @@ export function Login(props) {
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [schoolName,setSchoolName] = React.useState('Hogwarts')
+  const [messages, setMessages] = React.useState([])
+
+  webSocket = new GameEventNotifier();
+
+  const chatEls = messages.map((message, index) => (
+    <div key = {index}>
+      <span className = "chatmessage">{message.name} just enrolled at {message.school}</span>
+    </div>
+  ))
   
   async function loginUser() {
     const response = await fetch(`/api/auth/login`, {
@@ -22,11 +31,57 @@ export function Login(props) {
       setSchoolName(localStorage.getItem(userName));
       localStorage.setItem('schoolName',schoolName)
       props.onAuthChange(userName,AuthState.Authenticated,schoolName)
+      webSocket.broadcastEvent(userName,schoolName)
     } else {
       const body = await response.json();
       alert("Incorrect username or password")
     }
   }
+
+
+  class GameEventNotifier {
+    events = [];
+    handlers = [];
+
+    constructor() {
+      let port = window.location.port;
+      const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+      this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+      // this.socket.onopen = (event) => {
+      //   this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'connected' }));
+      // };
+      this.socket.onclose = (event) => {
+        this.receiveEvent(new EventMessage('Simon', GameEvent.System, { msg: 'disconnected' }));
+      };
+      this.socket.onmessage = async (msg) => {
+        try {
+          const event = JSON.parse(await msg.data.text());
+          this.receiveEvent(event);
+        } catch {}
+      };
+    }
+
+    broadcastEvent(name,school) {
+      const event = {'name':name, 'school': school}
+      this.socket.send(JSON.stringify(event));
+    }
+
+    // addHandler(handler) {
+    //   this.handlers.push(handler);
+    // }
+
+    // removeHandler(handler) {
+    //   this.handlers.filter((h) => h !== handler);
+    // }
+
+    receiveEvent(event) {
+      this.events.push(event);
+
+      setMessages(this.events)
+      };
+    }
+
+const GameNotifier = new GameEventNotifier();
 
   return (
     <main className="body container-fluid text-center">
@@ -57,6 +112,7 @@ export function Login(props) {
               </button>
           </div>
         </div>
+        <div>{chatEls}</div>
       </main>
   );
 }
