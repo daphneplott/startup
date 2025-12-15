@@ -303,3 +303,118 @@ Port 443, 80, 22 is reserved for which protocol?
 What will the following code using Promises output when executed?
 - Promises run asynchronously, so they may get done later
 - If you await the promise before moving on, then it will execute first
+
+
+
+## Midterm 2 Review
+
+
+What is the default port for HTTP/HTTPS/SSH? 
+- Default ports are when you connect to a website, this will be the port that your computer will default to going to
+- HTTP - 80
+- HTTPS - 443
+- SSH - 22
+
+What does an HTTP status code in the range of 300/400/500 indicate?
+- 200 - good response
+- 500 - server error, something wrong on the server end
+- 400 - client side error, page not found, unauthorized
+- 300 - redirects
+
+What does the HTTP header content-type allow you to do?
+- what content type we are sending or expecting to receive when we do a get/put type request
+- application, json, image
+- content type of the request body
+
+What does a “Secure cookie”/”Http-only cookie”/”Same-site cookie” do?
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- storing cookies for authentication
+- expiration times
+- session cookies will expire when the session ends
+- secure cookies get encrypted
+- http-only can't be accessed by javascript, prevents client from reading or writing the cookie
+- same site determines whether cookies can get passed by third parties
+
+Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /api/document?
+- Post - creating or setting information in a resource
+- Get - get the resource
+- Delete - delete resource
+- Put - updating resource
+- Only calls the next function in the list if you do next()
+
+Given the following Express service code: What does the following front end JavaScript that performs a fetch return?
+- Could send an error or success code (200/300/400/500)
+- Could set information into the local storage
+- Sending information to the next function
+
+Given the following MongoDB query, select all of the matching documents {name:Mark}
+- Selects any objects that have the attribute name == Mark
+- { $gte: } and $lt denote greater than or equal or less than
+- can use regular expressions in query
+- $or: [this, that]
+
+How should user passwords be stored?
+- Using a secure hash!
+- You don't ever need to read the user password, just match it
+
+Assuming the following node.js websocket code in the back end, and the following front end websocket code, what will the front end log to the console?
+- The websocket is a class that provides packaging around the ws instance
+- It has ways to listen for and send messages
+- onmessage, onclose, onopen, recieveEvent, send
+
+What is the websocket protocol intended to provide?
+- Real time communication between users online
+- Don't have to refresh the page to get new information
+
+What do the following acronyms stand for? JSX, JS, AWS, NPM, NVM
+- JSX - Java Script with XML
+- AWS - Amazon web services
+- NPM - node package manager
+- NVM - Node version manager
+
+Assuming an HTML document with a body element. What text content will the following React component generate?  The react component will use parameters.
+- Index.js will find the root and render the app
+- app.jsx will have different functions that will display pages based on the input given
+- functions will either be given an object props, or { specific thing }
+
+Given a set of React components that include each other, what will be generated?
+- 
+
+What does a React component with React.useState do?
+- Creates a variable that will reload the page anytime the variable gets changed
+
+What are React Hooks used for?
+- updating components when they change
+- rendering components
+- You don't have to refresh the page for information to update
+- useState, useEffect
+
+What does the State Hook/Context Hook/Ref Hook/Effect Hook/Performance Hook do? https://react.dev/reference/react/hooks
+- see useState above
+- Effect - set conditions for when to execute code (such as when a state variable updates, or just the first time)
+
+Given React Router code, select statements that are true.
+- Routes call functions that return html page data
+- Can pass elements to the function
+
+What does the package.json file do?
+- When you do node projects, that will install the dependencies
+- defining packages like "npm run dev"
+- extensions, versions
+
+What does the fetch function do?
+- Calls a 'website' to make an http request
+- backend apis, other apis
+
+What does node.js do?
+- Allows us to run the backend code
+- runs javascript code outside of an internet browser
+
+What does pm2 do?
+- A daemon that handles running your deployed server
+
+What does Vite do?
+- Bundles react code or other types of code
+- Building jsx into javascript
+- Debugging and running 
+
